@@ -1,2 +1,2 @@
 # iBetter
-Good habit tracker for better habits!
+Good habit tracker
