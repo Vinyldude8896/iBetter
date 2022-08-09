@@ -1,22 +1,22 @@
 {
   "name": "iBetter",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "scripts": {
-        "start": "node server.js",
-        "test": "jest",
-        "seeds": "node seeds/index.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Vinyldude8896/iBetter"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Vinyldude8896/iBetter/issues"
-    },
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "seeds": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vinyldude8896/iBetter"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vinyldude8896/iBetter/issues"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "connect-session": "^0.0.1",
@@ -28,6 +28,7 @@
     "express-session": "^1.17.3",
     "i": "^0.3.7",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.19",
     "sequelize": "^6.21.3"
   }
 }
