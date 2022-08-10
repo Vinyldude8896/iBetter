@@ -40,4 +40,11 @@ router.get('/', (req, res) => {
     //     res.status(500).json(err);
     });
 
+    // this route will get all the posts for the homepage and render the hompage handlebars
+router.get('/Enter_Progress', (req, res) => {
+    console.log('============================');
+        res.render('enter_progress', {
+    });
+});
+
     module.exports = router;
