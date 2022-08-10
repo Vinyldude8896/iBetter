@@ -22,10 +22,10 @@ router.post('/', async (req, res) => {
 
 router.post('/login', async (req, res) => {
     try {
-        const {body : { username, password}} = req
+        const {body : { email, password}} = req
         const userInfo = await User.findOne({
             where: {
-                username
+                email
             }
         })
         const validatePassword = await userInfo.checkPassword(password)
