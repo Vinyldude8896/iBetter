@@ -14,22 +14,14 @@ Date.init(
       type: DataTypes.DATEONLY,
       allowNull: false
     },
-    user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'user',
-        key: 'id'
-      }
-    },
-    habit_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'habit',
-        key: 'id'
-      }
-    }
+    // habit_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'habit',
+    //     key: 'id'
+    //   }
+    // }
   },
   {
     sequelize,

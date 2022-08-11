@@ -1,0 +1,21 @@
+[
+    {
+      "username": "Sal",
+      "email": "sal@hotmail.com",
+      "password": "password1234",
+      "habit_id": [1, 2, 3]
+    },
+    {
+      "username": "Lernantino",
+      "email": "lernantino@gmail.com",
+      "password": "coolPw2020",
+      "habit_id": [4]
+    },
+    {
+      "username": "Amiko",
+      "email": "amiko2k20@aol.com",
+      "password": "amiko2k20!",
+      "habit_id": []
+    }
+  ]
+  
