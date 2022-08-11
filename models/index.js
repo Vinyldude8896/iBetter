@@ -3,7 +3,7 @@ const Habit = require('./Habit');
 const Result = require('./Result');
 const Date = require('./Date');
 
- //one-to-many
+ //one-to-many result through table
   Result.belongsTo(Habit, {
     foreignKey: 'habit_id'
   });

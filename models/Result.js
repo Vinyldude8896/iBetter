@@ -13,6 +13,7 @@ Result.init(
     is_completed: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
+      defaultValue: false 
     },
     habit_id: {
       type: DataTypes.INTEGER,

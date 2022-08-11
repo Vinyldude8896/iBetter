@@ -1,21 +1,18 @@
 [
     {
-      "username": "Sal",
-      "email": "sal@hotmail.com",
-      "password": "password1234",
-      "user_id": [1]
+      "habit_title": "Bed",
+      "habit_info": "Bed made first thing in the morning",
+      "user_id": 1
     },
     {
-      "username": "Lernantino",
-      "email": "lernantino@gmail.com",
-      "password": "coolPw2020",
-      "user_id": [2]
+      "habit_title": "Homework",
+      "habit_info": "Do 1 hour of homework",
+      "user_id": 2
     },
     {
-      "username": "Amiko",
-      "email": "amiko2k20@aol.com",
-      "password": "amiko2k20!",
-      "user_id": [3]
+      "habit_title": "Exercise",
+      "habit_info": "Go on a 30 minute run",
+      "user_id": 1
     }
   ]
 
