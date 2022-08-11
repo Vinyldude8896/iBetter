@@ -10,13 +10,9 @@ Date.init(
       primaryKey: true,
       autoIncrement: true
     },
-    time_start: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    time_end: {
-      type: DataTypes.DATE,
-      allowNull: false,
+    date: {
+      type: DataTypes.DATEONLY,
+      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER,
