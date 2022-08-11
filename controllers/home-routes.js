@@ -1,50 +1,87 @@
 const router = require('express').Router();
-// const sequelize = require('../config/connection');
-// const {Post, User, Comment} = require('../models');
+const sequelize = require('../config/connection');
+const { User, Habit } = require('../models');
 
-// this route will get all the posts for the homepage and render the hompage handlebars
 router.get('/', (req, res) => {
-    console.log('============================');
-    // Post.findAll({
-        // attributes: [
-        //     'id',
-        //     'title',
-        //     'body',
-        //     'created_at',
-        // ],
-    //     include: [
-    //         {
-    //             model: Comment,
-    //             attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-    //             include: {
-    //                 model: User,
-    //                 attributes: ['username']
-    //             }
-    //         },
-    //         {
-    //             model: User,
-    //             attributes: ['username']
-    //         }
-    //     ]
-    // })
-    // .then(dbPostData => {
-    //     const posts = dbPostData.map(post => post.get({plain: true}));
+  console.log(req.session);
 
-        res.render('homepage', {
-            // posts,
-            // loggedIn: req.session.loggedIn
-        });
-    // })
-    // .catch(err => {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    });
-
-    // this route will get all the posts for the homepage and render the hompage handlebars
-router.get('/Enter_Progress', (req, res) => {
-    console.log('============================');
-        res.render('enter_progress', {
+  Habit.findAll({
+    attributes: [
+      'id',
+      'habit_title',
+      'habit_info',
+      'created_at',
+    ],
+    include: {
+      model: User,
+      attributes: ['username']
+    }
+  })
+    .then(dbPostData => {
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('homepage', {
+        posts,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
 });
 
-    module.exports = router;
+router.get('/post/:id', (req, res) => {
+  Habit.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'habit_title',
+      'habit_info',
+      'created_at'
+    ],
+    include: {
+      model: User,
+      attributes: ['username']
+    }
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+
+      // serialize the data
+      const post = dbPostData.get({ plain: true });
+
+      // pass data to template
+      res.render('single-post', { 
+        post,
+        loggedIn: req.session.loggedIn
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get('/', (req, res) => {
+    res.render('homepage');
+});
+
+// router.get('/login', (req, res) => {
+//   if (req.session.loggedIn) {
+//     res.redirect('/');
+//     return;
+//   }
+//   res.render('login');
+// })
+
+// router.get('/signup', (req, res) => {
+
+//   res.render('signup');
+// });
+
+module.exports = router;
