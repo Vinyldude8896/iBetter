@@ -13,7 +13,7 @@ Date.init(
     date: {
       type: DataTypes.DATEONLY,
       allowNull: false
-    },
+    }
     // habit_id: {
     //   type: DataTypes.INTEGER,
     //   allowNull: false,
@@ -27,7 +27,7 @@ Date.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'Date'
+    modelName: 'date'
   }
 );
 

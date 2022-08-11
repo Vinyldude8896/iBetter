@@ -8,7 +8,7 @@ const Date = require('./Date');
     foreignKey: 'habit_id'
   });
 
-  Result.belongsto(Date, {
+  Result.belongsTo(Date, {
     foreignKey: 'date_id'
   })
 
