@@ -2,7 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Result extends Model {}
-
+// time, habit_id, id
+// record amount
 Result.init(
   {
     id: {
@@ -10,7 +11,7 @@ Result.init(
       primaryKey: true,
       autoIncrement: true
     },
-    result: {
+    is_completed: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
     },
@@ -27,6 +28,14 @@ Result.init(
       allowNull: false,
       references: {
         model: 'habit',
+        key: 'id'
+      }
+    },
+    date_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'date',
         key: 'id'
       }
     }
