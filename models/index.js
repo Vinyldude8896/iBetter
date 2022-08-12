@@ -1,7 +1,7 @@
 const User = require('./User');
 const Habit = require('./Habit');
 const Result = require('./Result');
-const Date = require('./date');
+const Date = require('./Date');
 
  //one-to-many result through table
   Result.belongsTo(Habit, {
