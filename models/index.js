@@ -1,9 +1,26 @@
 const User = require('./User');
-const Habit = require('./Habit');
-const Result = require('./Result');
-const Date = require('./Date');
+const Habit = require('./habit');
+const Result = require('./result');
+const Date = require('./date');
 
-// associations
+ //one-to-many result through table
+  Result.belongsTo(Habit, {
+    foreignKey: 'habit_id'
+  });
+
+  Result.belongsTo(Date, {
+    foreignKey: 'date_id'
+  })
+
+  Habit.hasMany(Result, {
+    foreignKey: 'habit_id',
+  });
+
+  Date.hasMany(Result, {
+    foreignKey: 'date_id'
+  })
+
+// user habit associations one-to-many
 User.hasMany(Habit, {
   foreignKey: 'user_id',
 });
@@ -11,30 +28,5 @@ User.hasMany(Habit, {
 Habit.belongsTo(User, {
   foreignKey: 'user_id',
 });
-
-Habit.hasMany(Result, {
-  foreignKey: 'habit_id',
-});
-
-Result.belongsTo(Habit, {
-  foreignKey: 'habit_id',
-});
-
-Habit.hasMany(Date, {
-  foreignKey: 'habit_id',
-});
-
-Date.belongsTo(Habit, {
-  foreignKey: 'habit_id',
-});
-
-User.hasMany(Date, {
-  foreignKey: 'user_id',
-});
-
-Date.belongsTo(User, {
-  foreignKey: 'user_id',
-});
-
 
 module.exports = { User, Habit, Result, Date }
