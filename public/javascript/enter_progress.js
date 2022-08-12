@@ -1,4 +1,21 @@
 
+// function to get date ID using tabke header data
+
+const getDateID = await fetch('/api/date', {
+    method: 'GET',
+        body: JSON.stringify({
+          post_id,
+          comment_text
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+        where: {
+              id: req.params.id
+            }
+          
+      });
+
 
 // Select all checkboxes with the name 'settings' using querySelectorAll.
 var checkboxes = document.querySelectorAll("input[type=checkbox][name=settings]");
@@ -17,6 +34,7 @@ checkboxes.forEach(function(checkbox) {
       console.log(arrayHabits);
       let habitChangedID = arrayHabits[0];
       let dayChangedID = arrayHabits[1];
+      let checboxValue = true;
 
       console.log("The Habit ID changed is " + habitChangedID);
       console.log("the day ID changed is " + dayChangedID);
@@ -26,15 +44,8 @@ checkboxes.forEach(function(checkbox) {
       console.log("The habit name changed is " + habitNameChanged);
       console.log("The day name changed is " + dayNameChanged);
    
-      //   arrayHabits.push(i.split("-"));
-      
-    // console.log(arrayHabits)
 
-    // enabledSettings.forEach(function(){
-        
-    //     console.log(enabledSettings.split(" "));
-    // });
+        console.log("checkbox clicked");
 
-console.log("checkbox clicked");
   })
 });
