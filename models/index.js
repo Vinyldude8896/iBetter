@@ -1,5 +1,5 @@
-const User = require('./users');
-const Habit = require('./habits');
+const User = require('./User');
+const Habit = require('./Habit');
 const Result = require('./result');
 const Date = require('./date');
 
