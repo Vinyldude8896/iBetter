@@ -1,20 +1,20 @@
 
 // function to get date ID using tabke header data
 
-const getDateID = await fetch('/api/date', {
-    method: 'GET',
-        body: JSON.stringify({
-          post_id,
-          comment_text
-        }),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-        where: {
-              id: req.params.id
-            }
+// const getDateID = await fetch('/api/date', {
+//     method: 'GET',
+//         body: JSON.stringify({
+//           post_id,
+//           comment_text
+//         }),
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//         where: {
+//               id: req.params.id
+//             }
           
-      });
+//       });
 
 
 // Select all checkboxes with the name 'settings' using querySelectorAll.
