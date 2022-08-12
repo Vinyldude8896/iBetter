@@ -1,65 +1,40 @@
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function toggleDropdownDay() {
-    document.getElementById("DropdownDay").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content-Days");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
 
 
-  /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function toggleDropdownHabit() {
-    document.getElementById("DropdownHabit").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content-Habits");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
+// Select all checkboxes with the name 'settings' using querySelectorAll.
+var checkboxes = document.querySelectorAll("input[type=checkbox][name=settings]");
+let enabledSettings = []
 
-    /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-function toggleDropdownStatus() {
-    document.getElementById("Dropdownstatus").classList.toggle("show");
-  }
-  
-  // Close the dropdown menu if the user clicks outside of it
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn')) {
-      var dropdowns = document.getElementsByClassName("dropdown-content-Status");
-      var i;
-      for (i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-          openDropdown.classList.remove('show');
-        }
-      }
-    }
-  }
-document.querySelector('.dropbtnDay').addEventListener('click', toggleDropdownDay);
+// Use Array.forEach to add an event listener to each checkbox.
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    let arrayHabits = []
+    enabledSettings = 
+      Array.from(checkboxes) // Convert checkboxes to an array to use filter and map.
+      .filter(i => i.checked) // Use Array.filter to remove unchecked checkboxes.
+      .map(i => arrayHabits = (i.id).split("-")) // Use Array.map to extract only the checkbox values from the array of objects.
+      
+      console.log(enabledSettings);
+      console.log(arrayHabits);
+      let habitChangedID = arrayHabits[0];
+      let dayChangedID = arrayHabits[1];
 
-document.querySelector('.dropbtnHabit').addEventListener('click', toggleDropdownHabit);
+      console.log("The Habit ID changed is " + habitChangedID);
+      console.log("the day ID changed is " + dayChangedID);
 
-document.querySelector('.dropbtnStatus').addEventListener('click', toggleDropdownStatus);
+      let habitNameChanged = document.querySelector("#" + habitChangedID).innerHTML;
+      let dayNameChanged = document.querySelector("#"+ dayChangedID).innerHTML;
+      console.log("The habit name changed is " + habitNameChanged);
+      console.log("The day name changed is " + dayNameChanged);
+   
+      //   arrayHabits.push(i.split("-"));
+      
+    // console.log(arrayHabits)
+
+    // enabledSettings.forEach(function(){
+        
+    //     console.log(enabledSettings.split(" "));
+    // });
+
+console.log("checkbox clicked");
+  })
+});

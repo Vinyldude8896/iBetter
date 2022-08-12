@@ -67,8 +67,8 @@ router.get('/post/:id', (req, res) => {
     });
 });
 
-router.get('/', (req, res) => {
-    res.render('homepage');
+router.get('/Enter_Progress', (req, res) => {
+    res.render('enter_progress');
 });
 
 // router.get('/login', (req, res) => {
