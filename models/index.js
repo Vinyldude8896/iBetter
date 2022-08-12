@@ -1,6 +1,6 @@
 const User = require('./User');
 const Habit = require('./Habit');
-const Result = require('./result');
+const Result = require('./Result');
 const Date = require('./date');
 
  //one-to-many result through table
