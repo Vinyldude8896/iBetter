@@ -1,4 +1,27 @@
-//not currently set up, seeds files will just store hardcoded template values to be tested out with routes in insomnia 
+const seedDates = require('./date-seeds');
+const seedHabits = require('./habit-seeds');
+const seedUsers = require('./user-seeds');
+const seedResults = require('./results-seeds')
+const sequelize = require('../config/connection');
+
+const seedAll = async () => {
+    await sequelize.sync({ force: true});
+    console.log('----------------');
+    await seedUsers();
+    console.log('----------------');
+    await seedDates();
+    console.log('----------------');
+    await seedHabits();
+    console.log('----------------');
+    await seedResults();
+    console.log('----------------');
+
+
+
+    process.exit(0);
+};
+
+seedAll();
 
 
 

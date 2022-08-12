@@ -11,7 +11,8 @@ Date.init(
       autoIncrement: true
     },
     date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.STRING,
+      // type: DataTypes.DATEONLY,
       allowNull: false
     }
     // habit_id: {
