@@ -10,12 +10,8 @@ const loginFormHandler = async (event) => {
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
       });
-  
-      if (response.ok) {
-        document.location.replace('/');
-      } else {
-        alert('Failed to log in.');
-      }
+
+      response.ok ? document.location.replace('/'): alert('Log in failed. Please try again.')
     }
   };
   
@@ -33,19 +29,11 @@ const loginFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      if (response.ok) {
-        document.location.replace('/');
-      } else {
-        alert('Failed to sign up.');
-      }
+      response.ok ? document.location.replace('/'): alert('Sign up failed. Please try again.')
     }
   };
   
-  document
-    .querySelector('.login-form')
-    .addEventListener('submit', loginFormHandler);
+  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
   
-  document
-    .querySelector('.signup-form')
-    .addEventListener('submit', signupFormHandler);
+  document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
   
