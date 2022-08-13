@@ -12,6 +12,11 @@
 
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(
+        to bottom, 
+        rgba(174, 108, 207, 1),
+        rgba(174, 108, 207, 0.2)
+        );
 }
 
 main {
@@ -67,6 +72,12 @@ header h1 {
     margin: 10px 30%;
 }
 
+.edit-habit {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
 /* header button {
     font-size: 30px;
     margin: 0 20px;
@@ -84,14 +95,23 @@ header h1 {
     transition: color .1s;
 } */
 
+#logout {
+    border: none;
+}
+
+#logout:hover {
+    background: var(--secondary-color);
+    color: var(--tertiary-color);
+}
+
 .login-page {
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px
+    margin: 40px
 }
 
 .login-page h1 {

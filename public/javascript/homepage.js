@@ -3,7 +3,24 @@ document.querySelector('.add-note-area').addEventListener('click', function() {
 
 });
 
-// document.querySelector('.add-habit-area').addEventListener('click', function() {
-//   console.log('habit');
+async function newFormhandler() {
+  // user_id should be from session.user_id
+  const user_id = req.session.user_id;
+  // const user_id = 1;
 
-// });
+  const response = await fetch(`/api/habits/${user_id}`, {
+    method: 'GET',
+  });
+
+  if (response.ok) {
+    response.json().then(function(data) {
+      console.log(data)
+      // displayRepos(data, user);
+      // document.location.replace('/');
+  });  
+  } else {
+    alert(response.statusText);
+  }
+}
+newFormhandler();
+// document.querySelector('.new-habit-form').addEventListener('submit', newFormhandler);

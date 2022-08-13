@@ -3,8 +3,9 @@ async function newFormhandler(event) {
 
   const title = document.querySelector('input[name="habit-title"]').value;
   const content = document.querySelector('input[name="habit-info"]').value;
+  const user_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
-  const response = await fetch(`/api/habits`, {
+  const response = await fetch(`/api/habits/${user_id}`, {
     method: 'POST',
     body: JSON.stringify({
       title,

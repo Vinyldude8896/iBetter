@@ -5,7 +5,7 @@ const withAuth = require('../../utils/auth');
 
 //initial check
 //add witAuth back in after
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Post.create(
         {
             habit_id: req.body.title,
