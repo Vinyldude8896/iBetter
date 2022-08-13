@@ -19,7 +19,6 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "bcryptjs": "^2.4.3",
     "chart.js": "^3.9.1",
     "connect-session": "^0.0.1",
     "connect-session-sequelize": "^7.1.4",
