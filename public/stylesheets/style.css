@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --primary-color: rgb(174, 108, 207);
@@ -7,21 +12,35 @@
 
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
 }
 
+main {
+    /* margin: 10px 80px; */
+    padding: 20px 20px 0 20px;
+}
+
+/* .wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+} */
+
 button {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px;
+    border-radius: 25px;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
 a {
     text-decoration: none;
     color: var(--secondary-color);
-    font-weight: bold;
-    transition: color .1s;
-  }
+    /* font-weight: bold;
+    transition: color .1s; */
+}
 
-header {
+/* main-header */
+.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,19 +49,30 @@ header {
 }
 
 header h1 {
+    color: var(--secondary-color);
     font-size: 45px;
+    font-weight: bold;
 }
 
-header nav {
-    font-size: 30px;
+.nav-link {
+    font-size: 20px;
+    color: var(--secondary-color);
 }
 
-header button {
+.nav-link:hover {
+    color: var(--tertiary-color);
+}
+
+.create-habit {
+    margin: 10px 30%;
+}
+
+/* header button {
     font-size: 30px;
     margin: 0 20px;
-}
+} */
 
-.btn-no-style {
+/* .btn-no-style {
     background: none;
     border: none;
     padding: 0;
@@ -52,7 +82,7 @@ header button {
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
-  }
+} */
 
 .login-page {
     background-color: var(--primary-color);

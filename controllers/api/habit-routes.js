@@ -6,7 +6,7 @@ const { Habit, User, Result, Date } = require('../../models');
 //don't need a get all (/) route because we only look at one users habits at a time
 
 //find all habits of a specific user 
-router.get('/user', (req, res) => {
+router.get('/:id', (req, res) => {
     Habit.findAll({
         where: {
             user_id: req.session.user_id
