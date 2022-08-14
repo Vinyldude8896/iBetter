@@ -26,11 +26,11 @@ const sess = {
 app.use(session(sess));
 
 // this portion will be used if we choose to timeout a session cookie expires
-app.use(function(req,res,next){
-  req.session._garbage = Date();
-  req.session.touch();
-  next()
-})
+// app.use(function(req,res,next){
+//   req.session._garbage = Date();
+//   req.session.touch();
+//   next()
+// })
 
 
 // defining helpers location and express handlebars 
@@ -46,7 +46,7 @@ app.set('view engine', 'handlebars');
 
 // useing express JSON, url_encoded
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // using controllers(routes)

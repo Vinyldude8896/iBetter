@@ -18,28 +18,33 @@
 
   {{!-- dones't work --}}
   <section class="edit-habit">
-    <ol class="habit-list">
+    {{!-- <ol class="habit-list">
       {{#each habits as |habit|}}
       <li>
           {{> habit-desc habit}}
       </li>
       {{/each}}
-    </ol>
-
-      {{!-- <h2>
-        Edit Habit
-      </h2>
-      <form class="edit-habit-form">
-        <div>
-          <input type="text" name="habit-title" value="" />
-        </div>
-
-        <button type="submit">Save habit</button>
-        <button type="button" class="delete-habit-btn">Delete habit</button>
-      </form>
-  </section> --}}
+    </ol> --}}
+  </section>
 </section>
 
+{{!-- templet --}}
+<section class="edit-habit">
+  <form class="edit-habit-form row row-cols-lg-auto g-3 align-items-center justify-content-center">
+    <div class="col">
+      <input type="text" name="habit-title" value="" />
+    </div>
+    <div class="col">
+      <input type="text" name="habit-content" value="" />
+    </div>
+    <div class="col">
+      <button type="submit">Edit</button>
+    </div>
+    <div class="col">
+      <button type="button" class="delete-habit-btn">Delete</button>
+    </div>
+  </form>
+</section>
 
 <script src="/javascript/create-new-habit.js"></script>
 {{!-- <script src="/javascript/edit-habit.js"></script>

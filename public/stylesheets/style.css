@@ -22,6 +22,7 @@ body {
 main {
     /* margin: 10px 80px; */
     padding: 20px 20px 0 20px;
+    flex: 1;
 }
 
 .welcome {
@@ -75,9 +76,7 @@ header h1 {
 }
 
 .edit-habit {
-    width: 500px;
-    height: 500px;
-    border: 1px solid black;
+
 }
 
 .btn-add-habit, .add-note-area {
