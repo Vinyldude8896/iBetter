@@ -1,35 +1,41 @@
-{{!-- {{#if loggedIn}} --}}
-<div class="container text-center">
-  <div class="row">
-    <section class="chartbox col-md-9">
-      <canvas id="myChart"></canvas>
-      <div class="add-habit-area">
-        <button type="button" class="btn-add-habit"><a href="/dashboard">Add New Habit</a></button>
-      </div>
-    </section>
-
-    <section class="note col-md-3">
-      <div class="note-container">
-        <div id="note-area"></div>
-        <div>
-          <button type="button" class="add-note-area">Add New Note</button>
-        </div>
-      </div>
-    </section>
-  </div>
+<div class="chartbox">
+<canvas id="myChart"></canvas>
 </div>
-
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{{> chartbox }}
-<script src="/javascript/homepage.js"></script>
-{{!-- {{else}} --}}
-<div class="container text-center welcome">
-  <div class="row">
-    <div class="col">
-      <h1>Welcome to Use Habit Tracker</h1>
-    </div>
-  </div>
-</div>
-{{!-- {{/if}} --}}
-
-<script src="/javascript/add-note.js"></script>
+<script>
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Read for an hour', 'Turn off Phone - min 1hr', 'Exercise - min 30min', 'Coding - min 2hrs', 'Me time - fun activity - 1hr'],
+        datasets: [{
+            label: 'Monthly Progress',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+</script>
