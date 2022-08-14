@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Habit, User, Result, Date } = require('../../models');
+const { Habit, User} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //don't need a get all (/) route because we only look at one users habits at a time
 
 //find all habits of a specific user 
-router.get('/:user_id', withAuth, (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Habit.findAll({
         where: {
             user_id: req.session.user_id
