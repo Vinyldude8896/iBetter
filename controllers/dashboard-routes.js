@@ -98,7 +98,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
 // need add withAuth
 router.get('/', withAuth, (req, res) => {
   res.render('dashboard', { loggedIn: true });
-  // res.render('dashboard');
+
 });
 
 module.exports = router;

@@ -24,12 +24,14 @@ main {
     padding: 20px 20px 0 20px;
 }
 
-/* .wrapper {
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-} */
+.welcome {
+    margin: 330px 0;
+    text-shadow: 3px 2px rgba(0,0,0, .6);
+}
+
+.welcome h1 {
+    font-size: 64px;
+}
 
 button {
     padding: 5px;
@@ -76,6 +78,19 @@ header h1 {
     width: 500px;
     height: 500px;
     border: 1px solid black;
+}
+
+.btn-add-habit, .add-note-area {
+    margin-top: 20px;
+    border: none;
+}
+
+.btn-add-habit a {
+    padding: 5px;
+}
+
+.chartbox {
+    border-right: 1px solid black;
 }
 
 /* header button {

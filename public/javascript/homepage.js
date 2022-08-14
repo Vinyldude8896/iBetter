@@ -1,12 +1,7 @@
-document.querySelector('.add-note-area').addEventListener('click', function() {
-  console.log('note');
-
-});
-
 async function newFormhandler() {
   // user_id should be from session.user_id
-  const user_id = req.session.user_id;
-  // const user_id = 1;
+  // const user_id = req.session.user_id;
+  const user_id = 1;
 
   const response = await fetch(`/api/habits/${user_id}`, {
     method: 'GET',
@@ -23,4 +18,6 @@ async function newFormhandler() {
   }
 }
 newFormhandler();
+
+// create habit
 // document.querySelector('.new-habit-form').addEventListener('submit', newFormhandler);

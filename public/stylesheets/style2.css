@@ -1,10 +1,8 @@
 /* homepage */
-/* .chartbox {
-    width: 50vw;
-    height: 100%;
-    margin-right: 20px;
-    margin: 10px 100px 10px 100px; 
-} */
+.chartbox {
+  padding: 50px;
+  margin: 10px 20px 20px 10px; 
+}
 
 .add-habit-area, .add-note-area {
   margin: 10px auto;
