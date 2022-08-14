@@ -1,12 +1,15 @@
+/* homepage */
 .chartbox {
-    width: 1000px;
-    margin-top: 10px;
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-bottom: 10px;
+  padding: 50px;
+  margin: 10px 20px 20px 10px; 
 }
 
-.tablebox{
+.add-habit-area, .add-note-area {
+  margin: 10px auto;
+}
+
+/* enter progress */
+.tablebox{ 
     width: 1000px;
     margin-top: 10px;
     margin-bottom: 10px;

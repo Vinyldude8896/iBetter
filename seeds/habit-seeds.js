@@ -9,17 +9,17 @@ const habitData= [
     {
       habit_title: "code 2hrs",
       habit_info: "Code for 2hrs",
-      user_id: 1
+      user_id: 2
     },
     {
       habit_title: "exercise 30 min",
       habit_info: "Excercise for 30 minutes",
-      user_id: 1
+      user_id: 2
     },
     {
       habit_title: "Turn off phone",
       habit_info: "Turn off my phone for at least 1 hour",
-      user_id: 1
+      user_id: 3
     },
     {
       habit_title: "healthy meal",
