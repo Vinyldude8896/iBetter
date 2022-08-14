@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 :root {
     --primary-color: rgb(174, 108, 207);
@@ -7,21 +12,42 @@
 
 body {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+    background: linear-gradient(
+        to bottom, 
+        rgba(174, 108, 207, 1),
+        rgba(174, 108, 207, 0.2)
+        );
+}
+
+main {
+    /* margin: 10px 80px; */
+    padding: 20px 20px 0 20px;
+}
+
+.welcome {
+    margin: 330px 0;
+    text-shadow: 3px 2px rgba(0,0,0, .6);
+}
+
+.welcome h1 {
+    font-size: 64px;
 }
 
 button {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 5px;
+    border-radius: 25px;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
 }
 
 a {
     text-decoration: none;
     color: var(--secondary-color);
-    font-weight: bold;
-    transition: color .1s;
-  }
+    /* font-weight: bold;
+    transition: color .1s; */
+}
 
-header {
+/* main-header */
+.main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,19 +56,49 @@ header {
 }
 
 header h1 {
+    color: var(--secondary-color);
     font-size: 45px;
+    font-weight: bold;
 }
 
-header nav {
-    font-size: 30px;
+.nav-link {
+    font-size: 20px;
+    color: var(--secondary-color);
 }
 
-header button {
+.nav-link:hover {
+    color: var(--tertiary-color);
+}
+
+.create-habit {
+    margin: 10px 30%;
+}
+
+.edit-habit {
+    width: 500px;
+    height: 500px;
+    border: 1px solid black;
+}
+
+.btn-add-habit, .add-note-area {
+    margin-top: 20px;
+    border: none;
+}
+
+.btn-add-habit a {
+    padding: 5px;
+}
+
+.chartbox {
+    border-right: 1px solid black;
+}
+
+/* header button {
     font-size: 30px;
     margin: 0 20px;
-}
+} */
 
-.btn-no-style {
+/* .btn-no-style {
     background: none;
     border: none;
     padding: 0;
@@ -52,16 +108,25 @@ header button {
     font-size: 100%;
     font-weight: bold;
     transition: color .1s;
-  }
+} */
+
+#logout {
+    border: none;
+}
+
+#logout:hover {
+    background: var(--secondary-color);
+    color: var(--tertiary-color);
+}
 
 .login-page {
-    background-color: var(--primary-color);
+    /* background-color: var(--primary-color); */
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 100px
+    margin: 40px
 }
 
 .login-page h1 {

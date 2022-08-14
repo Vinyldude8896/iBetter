@@ -5,6 +5,7 @@ const withAuth = require('../../utils/auth');
 
 //initial check
 //add witAuth back in after
+
 router.post('/', (req, res) => {
     Post.create(
         {
