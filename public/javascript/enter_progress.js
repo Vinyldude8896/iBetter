@@ -46,6 +46,7 @@ checkboxes.forEach(function(checkbox) {
    
 
         console.log("checkbox clicked");
+/// adding more comments
 
   })
 });
