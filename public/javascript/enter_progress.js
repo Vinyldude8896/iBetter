@@ -44,8 +44,8 @@ checkboxes.forEach(function(checkbox) {
       console.log("The habit name changed is " + habitNameChanged);
       console.log("The day name changed is " + dayNameChanged);
    
-
         console.log("checkbox clicked");
+
 
   })
 });
