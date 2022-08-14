@@ -6,6 +6,8 @@
   margin-bottom: 10px;
 }
 
+
+
 .tablebox{
   width: 1000px;
   margin-top: 10px;
@@ -63,3 +65,20 @@
     display:block;
     -webkit-transition: padding 2s;
   }
+
+  .form-layout {
+    margin-left: 50px;
+    margin-top: 50px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.form-p {
+    color:black;
+}
+
+/* .form-layout button {
+    margin-left: 125px;
+} */
+
+ 
