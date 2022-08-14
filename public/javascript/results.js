@@ -1,3 +1,5 @@
+//template data Katie put in to give an idea of dynamic table functionality, not set up properly atm
+
 const db = require('../../config/connection')
 
 async function getHabitId(habit) {
@@ -44,7 +46,7 @@ async function checkboxHandler(event) {
 
     //will need to have a custom query to get the habit id and the date id from their name (see above for an idea of what im trying to do, i think we could potentially make a get route for this)
   
-    const response = await fetch(`/api/posts`, {
+    const response = await fetch(`/api/results`, {
       method: 'POST',
       body: JSON.stringify({
         habit_id,

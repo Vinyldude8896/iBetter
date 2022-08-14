@@ -9,7 +9,6 @@ const withAuth = require('../../utils/auth');
 router.get('/:user_id', withAuth, (req, res) => {
     Habit.findAll({
         where: {
-            // user_id: req.params.user_id
             user_id: req.session.user_id
         },
         attributes: [
@@ -44,7 +43,7 @@ router.post('/', withAuth, (req, res) => {
     Habit.create({
         habit_title: req.body.habit_title,
         habit_info: req.body.habit_info,
-        // user_id: req.session.user_id
+        user_id: req.session.user_id
     })
         .then(dbHabitData => res.json(dbHabitData))
         .catch(err => {

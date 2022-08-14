@@ -1,7 +1,6 @@
 async function newFormhandler() {
   // user_id should be from session.user_id
-  // const user_id = req.session.user_id;
-  const user_id = 1;
+  const user_id = req.session.user_id;
 
   const response = await fetch(`/api/habits/${user_id}`, {
     method: 'GET',

@@ -1,165 +1,72 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: rgb(174, 108, 207);
-    --secondary-color: black;
-    --tertiary-color: white;
-}
-
-body {
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(
-        to bottom, 
-        rgba(174, 108, 207, 1),
-        rgba(174, 108, 207, 0.2)
-        );
-}
-
-main {
-    /* margin: 10px 80px; */
-    padding: 20px 20px 0 20px;
-}
-
-.welcome {
-    margin: 330px 0;
-    text-shadow: 3px 2px rgba(0,0,0, .6);
-}
-
-.welcome h1 {
-    font-size: 64px;
-}
-
-button {
-    padding: 5px;
-    border-radius: 25px;
-    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
-}
-
-a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    /* font-weight: bold;
-    transition: color .1s; */
-}
-
-/* main-header */
-.main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--primary-color);
-    padding: 10px 20px;
-}
-
-header h1 {
-    color: var(--secondary-color);
-    font-size: 45px;
-    font-weight: bold;
-}
-
-.nav-link {
-    font-size: 20px;
-    color: var(--secondary-color);
-}
-
-.nav-link:hover {
-    color: var(--tertiary-color);
-}
-
-.create-habit {
-    margin: 10px 30%;
-}
-
-.edit-habit {
-    width: 500px;
-    height: 500px;
-    border: 1px solid black;
-}
-
-.btn-add-habit, .add-note-area {
-    margin-top: 20px;
-    border: none;
-}
-
-.btn-add-habit a {
-    padding: 5px;
-}
-
+/* homepage */
 .chartbox {
-    border-right: 1px solid black;
+  padding: 50px;
+  margin: 10px 20px 20px 10px; 
 }
 
-/* header button {
-    font-size: 30px;
-    margin: 0 20px;
-} */
+.add-habit-area, .add-note-area {
+  margin: 10px auto;
+}
 
-/* .btn-no-style {
-    background: none;
+/* enter progress */
+.tablebox{ 
+    width: 1000px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tablebox-header {
+    width: 100px;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
     border: none;
-    padding: 0;
     cursor: pointer;
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-size: 100%;
-    font-weight: bold;
-    transition: color .1s;
-} */
-
-#logout {
-    border: none;
-}
-
-#logout:hover {
-    background: var(--secondary-color);
-    color: var(--tertiary-color);
-}
-
-.login-page {
-    /* background-color: var(--primary-color); */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 40px
-}
-
-.login-page h1 {
-    font-size: 80px;
-    margin: 60px;
-}
-
-.entry-form {
-    padding: 25px;
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.entry-form input {
-    width: 500px;
-    padding: 20px;
-    margin: 10px;
-    font-size: 20px;
-    border-radius: 10px;
-}
-
-.entry-form label {
+  }
+  
+  /* Dropdown button on hover & focus */
+  .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
     display: none;
-}
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #ddd}
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {
+      display:block;
+      -webkit-transition: padding 2s;
+    }
 
-.entry-form button {
-    width: 540px;
-    padding: 20px;
-    margin: 10px;
-    font-size: 30px;
-    background-color: var(--secondary-color);
-    color: var(--tertiary-color);
-    border-radius: 20px;
-}
+    .hide {
+      display: none;
+    }

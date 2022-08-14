@@ -3,3 +3,5 @@ document.querySelector('.add-note-area').addEventListener('click', function() {
 
 });
 
+//set up if we add notes section
+

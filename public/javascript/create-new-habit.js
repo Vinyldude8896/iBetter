@@ -1,15 +1,15 @@
 async function newFormhandler(event) {
   event.preventDefault();
 
-  const title = document.querySelector('input[name="habit-title"]').value;
-  const content = document.querySelector('input[name="habit-info"]').value;
+  const habit_title = document.querySelector('input[name="habit-title"]').value;
+  const habit_info = document.querySelector('input[name="habit-info"]').value;
   const user_id = window.location.toString().split('/')[window.location.toString().split('/').length - 1];
 
   const response = await fetch(`/api/habits/${user_id}`, {
     method: 'POST',
     body: JSON.stringify({
-      title,
-      content
+      habit_title,
+      habit_info
     }),
     headers: {
       'Content-Type': 'application/json'
@@ -17,7 +17,7 @@ async function newFormhandler(event) {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/my-habits');
   } else {
     alert(response.statusText);
   }

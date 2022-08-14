@@ -15,7 +15,6 @@ const sess = {
     cookie: {},
     // cookie: { expires: 600000 }, // session will expire in 60 minutes. 
     resave: false,
-    rolling: true,
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize
@@ -25,20 +24,12 @@ const sess = {
 // this is for using the login session
 app.use(session(sess));
 
-// this portion will be used if we choose to timeout a session cookie expires
-app.use(function(req,res,next){
-  req.session._garbage = Date();
-  req.session.touch();
-  next()
-})
-
-
 // defining helpers location and express handlebars 
-const helpers = require('./utils/helpers');
+// const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars'); 
 
 // when we are using helpers
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({});
 
 // handlebar engines
 app.engine('handlebars', hbs.engine);
