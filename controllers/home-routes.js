@@ -71,13 +71,13 @@ router.get('/Enter_Progress', (req, res) => {
     res.render('enter_progress');
 });
 
-// router.get('/login', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.render('login');
-// })
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  res.render('testLogin');
+})
 
 // router.get('/signup', (req, res) => {
 
