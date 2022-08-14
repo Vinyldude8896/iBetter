@@ -1,14 +1,13 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Habit, User, Result, Date } = require('../../models');
+const { Date } = require('../../models');
 
  //find all habits of a specific user 
 router.get('/date', (req, res) => {
-    Habit.findAll({
+    Date.findAll({
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'habit_title', 'habit_info', 'user_id'],
+        attributes: ['id', 'date', 'habit_id'],
     })
         .then(dbHabitData => {
             if (!dbHabitData) {
@@ -22,3 +21,5 @@ router.get('/date', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+// 

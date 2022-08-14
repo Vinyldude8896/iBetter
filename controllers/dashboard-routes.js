@@ -4,7 +4,7 @@ const { User, Habit, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // need withAuth
-router.get('/my-habits', withAuth, (req, res) => {
+router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('======================'); 
   Habit.findAll({

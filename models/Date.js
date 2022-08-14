@@ -12,17 +12,16 @@ Date.init(
     },
     date: {
       type: DataTypes.STRING,
-      // type: DataTypes.DATEONLY,
       allowNull: false
+    },
+    habit_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'habit',
+        key: 'id'
+      }
     }
-    // habit_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: 'habit',
-    //     key: 'id'
-    //   }
-    // }
   },
   {
     sequelize,

@@ -1,26 +1,31 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { User, Habit } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get("/", (req, res) => {
+router.get('/', withAuth, (req, res) => {
   console.log(req.session);
-
+  console.log('======================');
   Habit.findAll({
-
-    attributes: [
-      "id",
-      "habit_title",
-      "habit_info",
-      // 'created_at', doesn't exist
-    ],
-    include: {
-      model: User,
-      attributes: ["username"],
-    },
+      where: {
+          user_id: req.session.user_id
+      },
+      attributes: [
+          'id',
+          'habit_title',
+          'habit_info',
+          [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
+      ],
+      include: [
+          {
+              model: User,
+              attributes: ['username']
+          }
+      ]
   })
     .then((dbHabitData) => {
       const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
-      res.render("my-habits-old", {
+      res.render("my-habits", {
         habits,
         user_id: req.session.user_id,
         loggedIn: req.session.loggedIn,
