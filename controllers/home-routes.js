@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const sequelize = require("../config/connection");
 const { User, Habit } = require("../models");
+const sequelize = require('../config/connection');
+const withAuth = require('../utils/auth');
 
-router.get("/home", (req, res) => {
+router.get("/", (req, res) => {
   console.log(req.session);
 
   Habit.findAll({
@@ -67,8 +68,11 @@ router.get("/habit/:id", (req, res) => {
     });
 });
 
-router.get(`/my-habits`, (req, res) => {
+router.get("/my-habits", withAuth, (req, res) => {
   Habit.findAll({
+    where: {
+    user_id: req.session.user_id
+    },
     attributes: [
       "id",
       "habit_title",
@@ -96,11 +100,11 @@ router.get(`/my-habits`, (req, res) => {
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/home");
+    res.redirect("/");
     return;
   }
 
-  res.render("testLogin");
+  res.render("login-signup");
 });
 
 // router.get('/signup', (req, res) => {

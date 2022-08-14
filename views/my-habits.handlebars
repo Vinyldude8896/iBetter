@@ -1,4 +1,20 @@
-<div>My Habits</div>
+{{!-- {{#if habits.[5]}} --}}
+<section class="add-habit">
+  <h2>Create New Habit</h2>
+
+  <form class="new-habit-form">
+    <div>
+      <label for="habit_title">Title</label>
+      <input type="text" id="habit_title" name="habit_title" />
+    </div>
+    <div>
+      <label for="habit_info">Description</label>
+      <input id="habit_info" name="habit_info" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
+{{!-- {{/if}} --}}
 
   <script src="/javascript/max-habit.js"></script>
   
