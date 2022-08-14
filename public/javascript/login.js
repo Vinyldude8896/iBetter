@@ -29,7 +29,7 @@ const loginFormHandler = async (event) => {
         headers: { 'Content-Type': 'application/json' },
       });
   
-      response.ok ? document.location.replace('/home'): alert('Sign up failed. Please try again.')
+      response.ok ? document.location.replace('/'): alert('Sign up failed. Please try again.')
     }
   };
   
