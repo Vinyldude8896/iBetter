@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Habit, User, Date, Result } = require('../../models');
+const { Result } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //initial check
