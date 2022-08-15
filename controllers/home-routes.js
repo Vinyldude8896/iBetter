@@ -1,83 +1,148 @@
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { User, Habit } = require('../models');
+const router = require("express").Router();
+const sequelize = require("../config/connection");
+const { User, Habit, Result } = require("../models");
+const withAuth = require("../utils/auth");
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
   console.log(req.session);
-
   Habit.findAll({
-    attributes: [
-      'id',
-      'habit_title',
-      'habit_info',
-      'created_at',
-    ],
-    include: {
-      model: User,
-      attributes: ['username']
-    }
+      where: {
+          user_id: req.session.user_id
+      },
+      attributes: [
+          'id',
+          'habit_title',
+          'habit_info',
+          [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
+      ],
+      include: [
+          {
+              model: User,
+              attributes: ['username']
+          },
+          {
+            model: Result
+          }
+      ]
   })
-    .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('homepage', {
-        posts,
-        loggedIn: req.session.loggedIn
+    .then((dbHabitData) => {
+      const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
+      res.render("home", {
+        habits,
+        user_id: req.session.user_id,
+        loggedIn: req.session.loggedIn,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/post/:id', (req, res) => {
+//this page doesn't exist yet so this route is not in use
+router.get("/habit/:id", (req, res) => {
   Habit.findOne({
     where: {
-      id: req.params.id
+      id: req.params.id,
     },
     attributes: [
-      'id',
-      'habit_title',
-      'habit_info',
-      'created_at'
+      "id",
+      "habit_title",
+      "habit_info",
+      // 'created_at'
     ],
     include: {
       model: User,
-      attributes: ['username']
-    }
+      attributes: ["username"],
+    },
   })
-    .then(dbPostData => {
-      if (!dbPostData) {
-        res.status(404).json({ message: 'No post found with this id' });
+    .then((dbhabitData) => {
+      if (!dbhabitData) {
+        res.status(404).json({ message: "No habit found with this id" });
         return;
       }
 
       // serialize the data
-      const post = dbPostData.get({ plain: true });
+      const habit = dbhabitData.get({ plain: true });
 
       // pass data to template
-      res.render('single-post', { 
-        post,
-        loggedIn: req.session.loggedIn
+      res.render("single-habit", {
+        habit,
+        loggedIn: req.session.loggedIn,
       });
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
       res.status(500).json(err);
     });
 });
 
-router.get('/Enter_Progress', (req, res) => {
-    res.render('enter_progress');
+router.get('/my-habits/edit/:id', withAuth, (req, res) => {
+  Habit.findByPk(req.params.id, {
+    where: {
+      user_id: req.session.user_id
+  },
+    attributes: [
+      'id',
+      'habit_title',
+      'habit_info',
+      [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
+    ]
+  })
+    .then(dbHabitData => {
+      if (dbHabitData) {
+        const habit = dbHabitData.get({ plain: true });
+        res.render('edit-habit', {
+          habit,
+          loggedIn: true
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
 });
 
-// router.get('/login', (req, res) => {
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-//   res.render('login');
-// })
+router.get(`/my-habits`, withAuth, (req, res) => {
+  Habit.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
+    attributes: [
+      "id",
+      "habit_title",
+      "habit_info"
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+    ],
+  })
+    .then((dbHabitData) => {
+      const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
+      res.render("my-habits", {
+        habits,
+        loggedIn: req.session.loggedIn,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+router.get("/login", (req, res) => {
+  if (req.session.loggedIn) {
+    res.redirect("/");
+    return;
+  }
+
+  res.render("login-signup");
+});
 
 // router.get('/signup', (req, res) => {
 

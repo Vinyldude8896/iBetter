@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const { User, Habit } = require('../../models');
 
-
 // GET /api/users
 router.get('/', (req, res) => {
   User.findAll({
@@ -24,7 +23,7 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Habit,
-        attributes: ['id', 'habit_title', 'habit_info', 'user_id', 'created_at']
+        attributes: ['id', 'habit_title', 'habit_info', 'user_id']
       }
     ]
   })
@@ -43,10 +42,11 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
+  const {body: {username, email, password}} = req
   User.create({
-    username: req.body.username,
-    email: req.body.email,
-    password: req.body.password
+    username,
+    email,
+    password
   })
     .then(dbUserData => {
       req.session.save(() => {
@@ -64,13 +64,14 @@ router.post('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  const {body: {email}} = req
   User.findOne({
     where: {
-      username: req.body.username
+      email
     }
   }).then(dbUserData => {
     if (!dbUserData) {
-      res.status(400).json({ message: 'No user with that username' });
+      res.status(400).json({ message: 'No user with that email' });
       return;
     }
 
@@ -105,6 +106,7 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 
 // PUT /api/users/1
 router.put('/:id', (req, res) => {
