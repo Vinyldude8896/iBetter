@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { resourceLimits } = require("worker_threads");
 const sequelize = require("../config/connection");
-const { User, Habit, Result, Date } = require("../models");
+const { User, Habit, Result } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get('/', withAuth, (req, res) => {
