@@ -15,11 +15,12 @@ async function newFormHandler(event) {
     }
   });
 
-
   if (response.ok) {
     document.location.replace('/my-habits');
   } else {
     alert(response.statusText);
   }
 }
+
+document.querySelector('.new-habit-form').addEventListener('submit', newFormHandler);
 

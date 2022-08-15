@@ -27,7 +27,7 @@ router.get('/', withAuth, (req, res) => {
   })
     .then((dbHabitData) => {
       const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
-      res.render("my-habits", {
+      res.render("home", {
         habits,
         user_id: req.session.user_id,
         loggedIn: req.session.loggedIn,
@@ -39,6 +39,7 @@ router.get('/', withAuth, (req, res) => {
     });
 });
 
+//this page doesn't exist yet so this route is not in use
 router.get("/habit/:id", (req, res) => {
   Habit.findOne({
     where: {
@@ -104,7 +105,7 @@ router.get('/my-habits/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get(`/my-habits`, (req, res) => {
+router.get(`/my-habits`, withAuth, (req, res) => {
   Habit.findAll({
     where: {
       user_id: req.session.user_id
