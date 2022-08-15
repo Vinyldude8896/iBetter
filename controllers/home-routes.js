@@ -6,6 +6,9 @@ router.get('/', (req, res) => {
   console.log(req.session);
 
   Habit.findAll({
+    where: {
+      user_id: req.session.user_id
+    },
     attributes: [
       'id',
       'habit_title',
@@ -68,6 +71,8 @@ router.get('/post/:id', (req, res) => {
 });
 
 router.get('/Enter_Progress', (req, res) => {
+
+
     res.render('enter_progress');
 });
 

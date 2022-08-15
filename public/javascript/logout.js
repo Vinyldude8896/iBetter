@@ -1,12 +1,17 @@
+// on click of the logout in nav bar this function will lof the user out
 
-const logout = async () => {
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
+// async function logout() {
+//   const response = await fetch('/api/users/logout', {
+//     method: 'post',
+//     headers: { 'Content-Type': 'application/json' }
+//   });
 
-  response.ok ? document.location.replace('/'): alert('Log out failed. Please try again.')
-};
+//   if (response.ok) {
+//       window.alert('you are now logged out');
+//     document.location.replace('/');
+//   } else {
+//     alert(response.statusText);
+//   }
+// }
 
-document.querySelector('#logout').addEventListener('click', logout);
-
+// document.querySelector('#logout').addEventListener('click', logout);

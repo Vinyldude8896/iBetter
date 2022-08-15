@@ -48,7 +48,7 @@ const withAuth = require('../utils/auth');
 router.get('/edit/:id', withAuth, (req, res) => {
   Post.findOne({
     where: {
-      id: req.params.id
+      user_id: req.session.user_id
     },
     attributes: [      
       'id',

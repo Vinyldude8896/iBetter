@@ -2,18 +2,40 @@ const router = require('express').Router();
 const { User, Post, Habit, Result } = require('../../models');
 
 
- //find all dates in table
- router.get('/', (req, res) => {
-  // console.log(req.session);
-  console.log('======================');
-      User.findAll({
-      })
-        .then(dbUserData => res.json(dbUserData))
-        .catch(err => {
-          console.log(err);
-          res.status(500).json(err);
-        })
+// GET /api/users
+router.get('/', (req, res) => {
+  User.findAll({
+    attributes: { }
+  })
+    .then(dbUserData => res.json(dbUserData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    })
+});
+
+// POST /api/users
+router.post('/', (req, res) => {
+  const {body: {username, email, password}} = req
+  User.create({
+    username,
+    email,
+    password
+  })
+    .then(dbUserData => {
+      req.session.save(() => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
+  
+        res.json(dbUserData);
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
     });
+});
 
 // this is for the login page, where we will search for a user pased on the username and password given
 // then we will create a new session for the user
@@ -60,29 +82,29 @@ router.post('/login', (req, res) => {
   });
 
 
-  // this route is used for signing up to the site. it requires a username, email and password.
-  // then will save the session for the user
-  router.post('/signup', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
-    User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password
-    })
-      .then(dbUserData => {
-        req.session.save(() => {
-          req.session.user_id = dbUserData.id;
-          req.session.username = dbUserData.username;
-          req.session.loggedIn = true;
+  // // this route is used for signing up to the site. it requires a username, email and password.
+  // // then will save the session for the user
+  // router.post('/signup', (req, res) => {
+  //   // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+  //   User.create({
+  //     username: req.body.username,
+  //     email: req.body.email,
+  //     password: req.body.password
+  //   })
+  //     .then(dbUserData => {
+  //       req.session.save(() => {
+  //         req.session.user_id = dbUserData.id;
+  //         req.session.username = dbUserData.username;
+  //         req.session.loggedIn = true;
     
-          res.json(dbUserData);
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+  //         res.json(dbUserData);
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(500).json(err);
+  //     });
+  // });
   
   
   module.exports = router;
