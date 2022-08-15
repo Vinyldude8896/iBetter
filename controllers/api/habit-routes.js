@@ -15,25 +15,25 @@ router.post('/', withAuth, (req, res) => {
         user_id: req.session.user_id
     })
         .then(dbHabitData => res.json(dbHabitData))
-        .then(
-            Habit.findAll({
-                limit: 1,
-                where: {
-                  id:req.body.id
-                },
-                order: [ [ 'created_At', 'DESC' ]]
-              })
-              .then(function(entries){
-                return entries[0]
-              })
-        )
-        .then(
-            Result.create({
-                is_completed: req.body.is_completed,
-                habit_id: entries[0],
-                date_id: req.body.date_id
-            })
-        )
+        // .then(
+        //     Habit.findAll({
+        //         limit: 1,
+        //         where: {
+        //           id:req.body.id
+        //         },
+        //         order: [ [ 'created_At', 'DESC' ]]
+        //       })
+        //       .then(function(entries){
+        //         return entries[0]
+        //       })
+        // )
+        // .then(
+        //     Result.create({
+        //         is_completed: req.body.is_completed,
+        //         habit_id: entries[0],
+        //         date_id: req.body.date_id
+        //     })
+        // )
         .catch(err => {
             console.log(err);
             res.status(500).json(err);

@@ -15,15 +15,6 @@ async function newFormHandler(event) {
     }
   });
 
-  const resultResponse = await fetch(`/api/habits`, {
-    method: 'POST',
-    body: JSON.stringify({
-      is_completed: false
-    }),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  });
 
   if (response.ok) {
     document.location.replace('/my-habits');

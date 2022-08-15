@@ -4,7 +4,6 @@ const withAuth = require('../../utils/auth');
 
 //initial check
 //add witAuth back in after
-
 //if user changes the status (unchecks/rechecks)
 router.put('/:id', withAuth, (req, res) => {
     Result.update(

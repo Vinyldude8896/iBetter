@@ -1,11 +1,10 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
-const { User, Habit } = require("../models");
+const { User, Habit, Result } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
-  console.log('======================');
   Habit.findAll({
       where: {
           user_id: req.session.user_id
@@ -20,6 +19,9 @@ router.get('/', withAuth, (req, res) => {
           {
               model: User,
               attributes: ['username']
+          },
+          {
+            model: Result
           }
       ]
   })
