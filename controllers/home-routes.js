@@ -105,7 +105,7 @@ router.get('/my-habits/edit/:id', withAuth, (req, res) => {
     });
 });
 
-router.get(`/my-habits`, (req, res) => {
+router.get(`/my-habits`, withAuth, (req, res) => {
   Habit.findAll({
     where: {
       user_id: req.session.user_id

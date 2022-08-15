@@ -67,6 +67,7 @@
       -webkit-transition: padding 2s;
     }
 
+    /* not in use yet */
     .hide {
       display: none;
     }
