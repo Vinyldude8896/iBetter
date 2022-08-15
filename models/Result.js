@@ -23,14 +23,14 @@ Result.init(
         key: 'id'
       }
     },
-    date_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: 'date',
-        key: 'id'
-      }
-    }
+    // date_id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   references: {
+    //     model: 'date',
+    //     key: 'id'
+    //   }
+    // }
   },
   {
     sequelize,

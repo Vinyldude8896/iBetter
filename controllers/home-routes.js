@@ -134,6 +134,40 @@ router.get(`/my-habits`, (req, res) => {
     });
 });
 
+router.get(`/my-habits`, (req, res) => {
+  Result.findAll({
+    where: {
+      user_id: req.session.user_id,
+      habit_id: req.body.habit_id
+    },
+    attributes: [
+      "id",
+      "is_completed"
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ["id", "username"],
+      },
+      {
+        model: Habit,
+        attributes: ["id"],
+      }
+    ],
+  })
+    .then((dbResultData) => {
+      const result = dbResultData.map((result) => result.get({ plain: true }));
+      res.render("my-habits", {
+        result,
+        loggedIn: req.session.loggedIn,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");

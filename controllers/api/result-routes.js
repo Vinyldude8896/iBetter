@@ -29,5 +29,17 @@ router.put('/:id', withAuth, (req, res) => {
         });
 });
 
+router.post('/', withAuth, (req, res) => {
+    Result.create(
+        {
+            is_completed: req.body.is_completed
+        }
+    )
+        .then(dbHabitData => res.json(dbHabitData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 module.exports = router;
