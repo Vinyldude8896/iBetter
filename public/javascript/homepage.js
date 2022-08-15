@@ -28,7 +28,7 @@
 document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
   checkbox.addEventListener("click", async (event) => {
     const { name: dateId, id: habitId, checked } = event.target;
-    console.log(dateId, habitId, checked);
+    console.log(habitId, dateId, checked);
     if (checked) {
       // POST
       const response = await fetch("/api/results", {
@@ -37,8 +37,8 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          dateId: +dateId,
           habitId: +habitId,
+          dateId: +dateId,
         }),
       });
       await response.json();
