@@ -37,7 +37,6 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          checked: true,
           dateId: +dateId,
           habitId: +habitId,
         }),
