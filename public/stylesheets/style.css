@@ -94,3 +94,13 @@
       z-index: 999;
       position: relative;
     }
+
+    .Kalam-font {
+      font-family: 'Kalam';
+      font-size: 26px;
+    }
+
+    .page-margin {
+      margin-left: 155px;
+      margin-top: 20px;
+    }

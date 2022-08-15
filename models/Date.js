@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Date extends Model {}
+class DateModel extends Model {}
 
-Date.init(
+DateModel.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -23,4 +23,4 @@ Date.init(
   }
 );
 
-module.exports = Date;
+module.exports = DateModel;
