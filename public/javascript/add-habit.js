@@ -23,3 +23,4 @@ async function newFormHandler(event) {
   }
 }
 
+document.querySelector('.new-habit-form').addEventListener('submit', newFormHandler);
