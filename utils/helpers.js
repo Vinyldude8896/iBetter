@@ -1,14 +1,12 @@
 module.exports = {
-  isChecked(date, results) {
-    console.log(">>>>>", date, results);
-    const habitId = this.id;
+  isChecked: (habitId, date, results) => {
+    console.log(">>>>>", habitId, date, results);
     const result = results?.find(
-      (result) => result.habit.id === habitId && result.date.date === date
+      (result) => result.habit_id === habitId && result.date_id == date
     );
     if (result) {
-      console.log(">>>>");
-      return result.is_completed;
+      return result.is_completed ? "checked='checked'" : "";
     }
-    return false;
+    return "";
   },
 };

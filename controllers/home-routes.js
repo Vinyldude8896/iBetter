@@ -81,6 +81,7 @@ router.get("/", withAuth, async (req, res) => {
     const results = resultsData.map((result) => result.get({ plain: true }));
     console.log(">>>>", results);
     res.render("home", {
+      //siblings
       habits,
       results,
       user_id: req.session.user_id,
