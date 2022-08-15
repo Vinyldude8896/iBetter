@@ -1,11 +1,11 @@
 const router = require("express").Router();
+const { resourceLimits } = require("worker_threads");
 const sequelize = require("../config/connection");
-const { User, Habit } = require("../models");
+const { User, Habit, Result, Date } = require("../models");
 const withAuth = require("../utils/auth");
 
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
-  console.log('======================');
   Habit.findAll({
       where: {
           user_id: req.session.user_id
@@ -20,6 +20,9 @@ router.get('/', withAuth, (req, res) => {
           {
               model: User,
               attributes: ['username']
+          },
+          {
+            model: Result
           }
       ]
   })
@@ -27,7 +30,6 @@ router.get('/', withAuth, (req, res) => {
       const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
       res.render("my-habits", {
         habits,
-        user_id: req.session.user_id,
         loggedIn: req.session.loggedIn,
       });
     })

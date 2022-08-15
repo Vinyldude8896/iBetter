@@ -25,11 +25,12 @@ const sess = {
 app.use(session(sess));
 
 // defining helpers location and express handlebars 
+const helpers = require('./utils/helpers');
 // const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars'); 
 
 // when we are using helpers
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 // handlebar engines
 app.engine('handlebars', hbs.engine);
