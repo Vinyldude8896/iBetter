@@ -7,7 +7,7 @@ router.get('/date', (req, res) => {
         where: {
             user_id: req.session.user_id
         },
-        attributes: ['id', 'date', 'habit_id'],
+        attributes: ['id', 'date'],
     })
         .then(dbHabitData => {
             if (!dbHabitData) {

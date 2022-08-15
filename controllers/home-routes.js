@@ -76,6 +76,34 @@ router.get("/habit/:id", (req, res) => {
     });
 });
 
+router.get('/my-habits/edit/:id', withAuth, (req, res) => {
+  Habit.findByPk(req.params.id, {
+    where: {
+      user_id: req.session.user_id
+  },
+    attributes: [
+      'id',
+      'habit_title',
+      'habit_info',
+      [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
+    ]
+  })
+    .then(dbHabitData => {
+      if (dbHabitData) {
+        const habit = dbHabitData.get({ plain: true });
+        res.render('edit-habit', {
+          habit,
+          loggedIn: true
+        });
+      } else {
+        res.status(404).end();
+      }
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 router.get(`/my-habits`, (req, res) => {
   Habit.findAll({
     where: {

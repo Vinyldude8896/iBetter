@@ -13,15 +13,7 @@ Date.init(
     date: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    // habit_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: 'habit',
-    //     key: 'id'
-    //   }
-    // }
+    }
   },
   {
     sequelize,

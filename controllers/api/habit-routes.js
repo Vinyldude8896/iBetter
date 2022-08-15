@@ -1,12 +1,36 @@
 const router = require('express').Router();
-const { Habit, Result } = require('../../models');
+const { User, Habit, Result } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //don't need a get all (/) route because we only look at one users habits at a time
 
 //find all habits of a specific user 
+ 
+router.get('/', (req, res) => {
+    console.log(req.session);
+    Habit.findAll({
+        attributes: [
+            'id',
+            'habit_title',
+            'habit_info'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            },
+            {
+              model: Result
+            }
+        ]
+    })
+    .then(dbHabitData => res.json(dbHabitData))
+      .catch((err) => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
-//add withAuth, back in later
 router.post('/', withAuth, (req, res) => {
     // expects {habit_title: 'Exercise', habit_info: 'Run for 30 minutes'}, gets user id from the current session
     Habit.create({
@@ -15,30 +39,56 @@ router.post('/', withAuth, (req, res) => {
         user_id: req.session.user_id
     })
         .then(dbHabitData => res.json(dbHabitData))
-        // .then(
-        //     Habit.findAll({
-        //         limit: 1,
-        //         where: {
-        //           id:req.body.id
-        //         },
-        //         order: [ [ 'created_At', 'DESC' ]]
-        //       })
-        //       .then(function(entries){
-        //         return entries[0]
-        //       })
-        // )
-        // .then(
-        //     Result.create({
-        //         is_completed: req.body.is_completed,
-        //         habit_id: entries[0],
-        //         date_id: req.body.date_id
-        //     })
-        // )
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
+router.put('/:id', withAuth, (req, res) => {
+    Habit.update(
+      {
+        habit_title: req.body.habit_title,
+        habit_info: req.body.habit_info
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+      .then(dbPostData => {
+        if (!dbPostData) {
+          res.status(404).json({ message: 'No post found with this id' });
+          return;
+        }
+        res.json(dbPostData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
 
+router.delete('/:id', withAuth, (req, res) => {
+    Habit.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+      .then(dbHabitData => {
+        if (!dbHabitData) {
+          res.status(404).json({ message: 'No habit found with this id' });
+          return;
+        }
+        res.json(dbHabitData);
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  });
+
+
+  
 module.exports = router;
