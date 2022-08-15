@@ -5,7 +5,7 @@ const logout = async () => {
     headers: { 'Content-Type': 'application/json' },
   });
 
-  response.ok ? document.location.replace('/'): alert('Log out failed. Please try again.')
+  response.ok ? document.location.replace('/login'): alert('Log out failed. Please try again.')
 };
 
 document.querySelector('#logout').addEventListener('click', logout);

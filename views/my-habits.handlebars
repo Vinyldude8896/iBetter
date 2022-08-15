@@ -1,0 +1,31 @@
+<section>
+  <h2>Create New Habit</h2>
+
+  <form class="new-habit-form">
+    <div>
+      <label for="habit-title">Title</label>
+      <input type="text" id="habit-title" name="habit-title" />
+    </div>
+    <div>
+      <label for="habit-info">info</label>
+      <input id="habit-info" name="habit-info" />
+    </div>
+    <button type="submit" class="btn">Create</button>
+  </form>
+</section>
+
+{{#if habits.length}}
+<section>
+  <h2>Your habits</h2>
+  <ol>
+    {{#each habits as |habit|}}
+    <li>
+      {{> habit-info habit}}
+      <a href="/my-habits/edit/{{habit.id}}" class="edit-link">Edit habit</a>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-habit.js"></script>
