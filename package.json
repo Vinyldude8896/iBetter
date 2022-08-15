@@ -27,6 +27,8 @@
     "express": "^4.18.1",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "handlebars-helpers": "^0.10.0",
     "i": "^0.3.7",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.19",
