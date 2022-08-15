@@ -72,7 +72,11 @@
       display: none;
     }
 
-
+    .bg-image {
+      background-image: url('/images/linedpaper.jpg');
+      height: 100vh;
+      background-size: cover;
+    }
 
     #overlay {
       position: relative; /* Sit on top of the page content */
