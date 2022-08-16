@@ -43,7 +43,7 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
       });
       await response.json();
     } else {
-      const response = await fetch(`/api/results/${habitId}`, {
+      const response = await fetch(`/api/results/${habitId}/${dateId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -51,5 +51,7 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
       });
       await response.json();
     }
+    window.location.reload();
   });
 });
+

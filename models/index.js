@@ -8,17 +8,17 @@ Result.belongsTo(Habit, {
   foreignKey: "habit_id",
 });
 
-Result.belongsTo(DateModel, {
-  foreignKey: "date_id",
-});
+// Result.belongsTo(DateModel, {
+//   foreignKey: "date_id",
+// });
 
 Habit.hasMany(Result, {
   foreignKey: "habit_id",
 });
 
-DateModel.hasMany(Result, {
-  foreignKey: "date_id",
-});
+// DateModel.hasMany(Result, {
+//   foreignKey: "date_id",
+// });
 
 // user habit associations one-to-many
 User.hasMany(Habit, {
@@ -38,4 +38,5 @@ Result.belongsTo(User, {
   foreignKey: "user_id",
 });
 
-module.exports = { User, Habit, Result, DateModel };
+module.exports = { User, Habit, Result };
+// DateModel
