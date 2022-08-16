@@ -100,7 +100,22 @@
       font-size: 26px;
     }
 
+    .Kalam-font-header {
+      font-weight: bolder;
+      font-size: 30px;
+      text-decoration: underline;
+    }
     .page-margin {
       margin-left: 155px;
-      margin-top: 20px;
+      margin-top: 15px;
     }
+
+    .margin_top{
+      margin-top:  32px;
+    }
+
+    .margin_top2{
+      margin-top:  18px;
+    }
+
+    
