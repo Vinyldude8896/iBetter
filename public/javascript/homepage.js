@@ -43,7 +43,7 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
       });
       await response.json();
     } else {
-      const response = await fetch(`/api/results/${habitId}`, {
+      const response = await fetch(`/api/results/${habitId}/${dateId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -53,3 +53,15 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
     }
   });
 });
+
+//functionality for the clear all button 
+document.querySelector(".delete-all").addEventListener("click", async (event) => {
+  const response = await fetch ("/api/results", {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    }
+  });
+  await response.json();
+  document.location.replace('/');
+})
