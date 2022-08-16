@@ -79,7 +79,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const habits = habitsData.map((habit) => habit.get({ plain: true }));
     const results = resultsData.map((result) => result.get({ plain: true }));
-    console.log(">>>>", results);
+    // console.log(">>>>", results);
     res.render("home", {
       //siblings
       habits,
