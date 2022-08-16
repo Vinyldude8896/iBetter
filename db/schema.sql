@@ -1,3 +1,0 @@
-DROP DATABASE IF EXISTS iBetter_db;
-
-CREATE DATABASE iBetter_db;

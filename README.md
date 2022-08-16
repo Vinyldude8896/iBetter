@@ -1,2 +1,0 @@
-# iBetter
-Good habit tracker
