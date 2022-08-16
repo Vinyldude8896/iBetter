@@ -46,5 +46,9 @@ app.use(require("./controllers"));
 
 // sequelize and PORT
 sequelize.sync({ force: false }).then(async () => {
+<<<<<<< HEAD
+=======
+  //await seedAll();
+>>>>>>> efc6b6ecdb3405b59b4690a26ffd1d6bc99a72df
   app.listen(PORT, () => console.log("Now listening"));
 });

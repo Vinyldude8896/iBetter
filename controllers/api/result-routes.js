@@ -51,6 +51,7 @@ router.delete("/:habitId/:dateId", withAuth, async (req, res) => {
     await Result.destroy({
       where: {
         is_completed: true,
+        date_id: dateId,
         habit_id: habitId,
         dateId: dateId,
         user_id: req.session.user_id,
@@ -61,6 +62,22 @@ router.delete("/:habitId/:dateId", withAuth, async (req, res) => {
             attributes: ["date_id"]
         }
       ]
+  
+    });
+    res.json({ success: true });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//delete all results for a user
+router.delete("/", withAuth, async (req, res) => {
+  try {
+    await Result.destroy({
+      where: {
+        user_id: req.session.user_id,
+      },
     });
     res.json({ success: true });
   } catch (err) {
