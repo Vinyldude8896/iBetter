@@ -3,41 +3,41 @@ const sequelize = require("../config/connection");
 const { User, Habit, Result, DateModel } = require("../models");
 const withAuth = require("../utils/auth");
 
-/* router.get('/', withAuth, (req, res) => {
-  console.log(req.session);
-  Habit.findAll({
-      where: {
-          user_id: req.session.user_id
-      },
-      attributes: [
-          'id',
-          'habit_title',
-          'habit_info',
-          [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
-      ],
-      include: [
-          {
-              model: User,
-              attributes: ['username']
-          },
-          {
-            model: Result
-          }
-      ]
-  })
-    .then((dbHabitData) => {
-      const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
-      res.render("home", {
-        habits,
-        user_id: req.session.user_id,
-        loggedIn: req.session.loggedIn,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-}); */
+// router.get('/', withAuth, (req, res) => {
+//   console.log(req.session);
+//   Habit.findAll({
+//       where: {
+//           user_id: req.session.user_id
+//       },
+//       attributes: [
+//           'id',
+//           'habit_title',
+//           'habit_info',
+//           [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
+//       ],
+//       include: [
+//           {
+//               model: User,
+//               attributes: ['username']
+//           },
+//           {
+//             model: Result
+//           }
+//       ]
+//   })
+//     .then((dbHabitData) => {
+//       const habits = dbHabitData.map((habit) => habit.get({ plain: true }));
+//       res.render("home", {
+//         habits,
+//         user_id: req.session.user_id,
+//         loggedIn: req.session.loggedIn,
+//       });
+//     })
+//     .catch((err) => {
+//       console.log(err);
+//       res.status(500).json(err);
+//     });
+// });
 
 router.get("/", withAuth, async (req, res) => {
   console.log(req.session);
@@ -79,7 +79,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const habits = habitsData.map((habit) => habit.get({ plain: true }));
     const results = resultsData.map((result) => result.get({ plain: true }));
-    console.log(">>>>", results);
+    // console.log(">>>>", results);
     res.render("home", {
       //siblings
       habits,
@@ -189,6 +189,8 @@ router.get(`/my-habits`, withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {

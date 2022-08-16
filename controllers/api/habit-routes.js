@@ -5,31 +5,6 @@ const withAuth = require('../../utils/auth');
 //don't need a get all (/) route because we only look at one users habits at a time
 
 //find all habits of a specific user 
- 
-router.get('/', (req, res) => {
-    console.log(req.session);
-    Habit.findAll({
-        attributes: [
-            'id',
-            'habit_title',
-            'habit_info'
-        ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            },
-            {
-              model: Result
-            }
-        ]
-    })
-    .then(dbHabitData => res.json(dbHabitData))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
 
 router.post('/', withAuth, (req, res) => {
     // expects {habit_title: 'Exercise', habit_info: 'Run for 30 minutes'}, gets user id from the current session
