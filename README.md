@@ -1,7 +1,7 @@
 # iBetter
 
-### This app will be used as a blog style posting site, where users can login securely and post, view and comment on their own and other users posts.
-### as a secured logged in user, you can create new posts, edit your posts or delete them. You can also see other users posts and make comments on them.
+### iBetter was developed to help you be better at tracking and accomplishing your good habits. This app features a user-freindly and easy to use interface, that will let you simply check off each habit you accomplished each day. We do ask you to sign up to our site, but don't worry we encrpyt all passwords for your safety.
+### as a secured logged in user, you can create habits, edit them, and track your progress through the month by simply checking the checkbox for the corresponding habit and date. When you add a new habit, you get a new column of checkboxes. There is a chart included as well so you can see your progress for each habit.
 
 
 ### badges
@@ -10,6 +10,9 @@
 ![mySQL](https://img.shields.io/badge/mySQL-License-lightgrey)
 ![Express.js](https://img.shields.io/badge/Express.js-License-lightblue)
 ![handlebars.js](https://img.shields.io/badge/handlebars.js-License-yellowgreen)
+![Bcrypt](https://img.shields.io/badge/bcrypt-License-blue)
+![Chart.js](https://img.shields.io/badge/Chart.js-License-yellowgreen)
+![sequelize](https://img.shields.io/badge/sequelize-License-lightgrey)
 
 ## Table of Contents
 
@@ -21,21 +24,21 @@
 
 ### Installation
 Live application is at this link :
-https://immense-cliffs-94479.herokuapp.com/
+https://murmuring-caverns-89581.herokuapp.com/
 
 
 
 
 ### Contribution Guidelines
-N/A as of yet
+We do not have contributions set up as of yet.
 ### Testing
-Multiple days were spent testing to ensure proper data was being written to the JSON file and retrieved properly.
+Multiple days were spent testing to ensure the interface was responsive and clean. Also to ensure the data being written to and from the database is correct.
 ### Questions
-    email address : kevinnivek@me.com
+    Please feel free to reach out to any of our four collaborators if you have any questions
     - additional instructions 
-    I can be contacted by phone as well, but prefer email contact first.
+   
 
 ### Images of example readme.md
 
-<img src="./tech_blog_screenshot_1.png" alt="Getting started">
-<img src="./tech_blog_screenshot__2.png" alt="Getting started">
+<img src="./iBetter_screenhot_1.png" alt="Getting started">
+<img src="./iBetter_screenhot_2.png" alt="Getting started">
