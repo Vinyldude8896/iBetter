@@ -3,7 +3,7 @@
     <thead>
       <th></th>
       {{#each habits}}
-        <th>{{habit_title}}</th>
+        <th class="Kalam-font">{{habit_title}}</th>
       {{/each}}
     </thead>
     <tbody>
@@ -16,15 +16,15 @@
         {{/each}}
       </tr>
       <tr>
-        <td class="table-primary" name="day2" id="day2" scope="col">2</td>
+        <td class="table-primary " name="day2" id="day2" scope="col">2</td>
         {{#each habits}}
           <td>
             <input type="checkbox" name="2" id="{{id}}" {{{isChecked id '2' ../results}}} />
           </td>
         {{/each}}
       </tr>
-      <tr>
-        <td class="table-primary" name="day3" id="day3" scope="col">3</td>
+      <tr class="tablebox-row">
+        <td class="table-primary " name="day3" id="day3" scope="col">3</td>
         {{#each habits}}
           <td>
             <input type="checkbox" name="3" id="{{id}}" {{{isChecked id '3' ../results}}} />
@@ -258,6 +258,16 @@
     </tbody>
   </table>
 </div>
+<footer>
+    <div class="card text-center top-layer">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <h5 class="card-title Kalam-font">Thanks for visiting the iBetter Habit tracker wesite</h5>
+        <p class="card-text Kalam-font">We value your support and encourage you to be Better!</p>
+      </div>
+      <div class="card-footer text-muted"></div>
+    </div>
+</footer>
 
 <script src="/javascript/homepage.js"></script>
 
