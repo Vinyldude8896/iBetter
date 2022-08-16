@@ -28,7 +28,6 @@ app.use(session(sess));
 const helpers = require('./utils/helpers')
 // const helpers = require('./utils/helpers');
 const exphbs = require("express-handlebars");
-const seedAll = require("./seeds");
 
 // when we are using helpers
 const hbs = exphbs.create({ helpers });
@@ -46,7 +45,6 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
 
 // sequelize and PORT
-sequelize.sync({ force: true }).then(async () => {
-  // await seedAll();
+sequelize.sync({ force: false }).then(async () => {
   app.listen(PORT, () => console.log("Now listening"));
 });

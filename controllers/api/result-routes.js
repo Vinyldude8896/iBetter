@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Result } = require("../../models");
+const { Result, DateModel } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 //initial check
@@ -45,15 +45,22 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
-router.delete("/:habitId", withAuth, async (req, res) => {
+router.delete("/:habitId/:dateId", withAuth, async (req, res) => {
   try {
-    const { habitId } = req.params;
+    const { habitId, dateId } = req.params;
     await Result.destroy({
       where: {
         is_completed: true,
         habit_id: habitId,
+        dateId: dateId,
         user_id: req.session.user_id,
       },
+      include: [
+        {
+            model: DateModel,
+            attributes: ["date_id"]
+        }
+      ]
     });
     res.json({ success: true });
   } catch (err) {
