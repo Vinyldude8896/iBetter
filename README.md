@@ -1,7 +1,7 @@
 # iBetter
 
-### iBetter was developed to help you be better at tracking and accomplishing your good habits. This app features a user-freindly and easy to use interface, that will let you simply check off each habit you accomplished each day. We do ask you to sign up to our site, but don't worry we encrpyt all passwords for your safety.
-### as a secured logged in user, you can create habits, edit them, and track your progress through the month by simply checking the checkbox for the corresponding habit and date. When you add a new habit, you get a new column of checkboxes. There is a chart included as well so you can see your progress for each habit.
+### iBetter was developed to help you be better at tracking and accomplishing your good habits. This app features a user-friendly and easy to use interface, that will let you simply check off each habit you accomplished each day. We do ask you to sign up to our site, but don't worry we encrpyt all passwords for your safety.
+### As a secured logged in user, you can create habits, edit them, and track your progress through the month by simply checking the checkbox for the corresponding habit and date. When you add a new habit, you get a new column of checkboxes. There is a chart included as well so you can see your progress for each habit.
 
 
 ### badges
