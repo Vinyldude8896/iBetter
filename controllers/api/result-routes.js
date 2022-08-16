@@ -57,10 +57,25 @@ router.delete("/:habitId/:dateId", withAuth, async (req, res) => {
       },
       include: [
         {
-            model: DateModel,
-            attributes: ["date_id"]
-        }
-      ]
+          model: DateModel,
+          attributes: ["date_id"],
+        },
+      ],
+    });
+    res.json({ success: true });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+//delete all results for a user
+router.delete("/", withAuth, async (req, res) => {
+  try {
+    await Result.destroy({
+      where: {
+        user_id: req.session.user_id,
+      },
     });
     res.json({ success: true });
   } catch (err) {
