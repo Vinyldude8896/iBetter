@@ -66,8 +66,8 @@ Users should be able to:
 
 ### Screenshot
 
-![](./assets/images/iBetter_screenhot_1.png)
-![](./assets/images/iBetter_screenhot_2.png)
+![](./assets/images/iBetter_screenshot_1.png)
+![](./assets/images/iBetter_screenshot_2.png)
 
 
 ### Links
