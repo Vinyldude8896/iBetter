@@ -15,26 +15,28 @@
   <div class="container">
     <header class="main-header m-4">
       <nav class="navbar navbar-expand-lg navbar-light bg-white d-flex align-items-center justify-content-center">
-          <ul class="navbar-nav d-flex align-items-center justify-content-center">
-            <li class="nav-item active">
-              <a class="nav-link " href="/"><h1>iBetter</h1> </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link header-text Kalam-font" href="/my-habits">My Habits</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link header-text Kalam-font" href="/table">My Progress</a>
-            </li>
-            {{#if loggedIn}}
-            <li class="nav-item">
-              <a id="logout" class="nav-link header-text Kalam-font">Logout</a>
-            </li>
-            {{else}}
-            <li class="nav-item">
-              <a class="nav-link header-text Kalam-font" href="/login">Login</a>
-            </li>
-            {{/if}}
-          </ul>
+        <ul class="navbar-nav d-flex align-items-center justify-content-center">
+          <li class="nav-item active">
+            <a class="nav-link " href="/">
+              <h1>iBetter</h1>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link header-text Kalam-font" href="/my-habits">My Habits</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link header-text Kalam-font" href="/table">My Progress</a>
+          </li>
+          {{#if loggedIn}}
+          <li class="nav-item">
+            <a id="logout" class="nav-link header-text Kalam-font">Logout</a>
+          </li>
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link header-text Kalam-font" href="/login">Login</a>
+          </li>
+          {{/if}}
+        </ul>
       </nav>
     </header>
   </div>
@@ -51,14 +53,19 @@
     integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
 
-<footer>
-  <div class="card text-center">
-    <div class="card-body">
-      <h5 class="card-title Kalam-font">Thanks for visiting the iBetter Habit tracker wesite</h5>
-      <p class="card-text Kalam-font">We value your support and encourage you to be Better!</p>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="dist/bootstrap-alert-modal.min.js"></script>
+
+  <footer>
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title Kalam-font">Thanks for visiting the iBetter Habit tracker wesite</h5>
+        <p class="card-text Kalam-font">We value your support and encourage you to be Better!</p>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
 </body>
+
 </html>
