@@ -56,3 +56,14 @@ input {
 li:hover .bi-pencil-fill {
   opacity: 1;
 }
+
+.alertModal {
+  position: absolute;
+  width: 100%;
+  z-index: 9999;
+}
+
+.alertBox {
+  margin: 0 auto;
+  width: 50vw;
+}
