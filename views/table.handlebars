@@ -548,6 +548,16 @@
     </button>
   </div>
 </div>
+{{else}}
+<div class="container text-center d-flex flex-column align-items-center justify-contents-center my-5">
+  <div class="card w-100">
+    <div class="card-body">
+    <h1 class="Kalam-font">Hello {{username}}!</h1>
+    <h2 class="Kalam-font">You're currently not tracking any habits</h2>
+    <h3 class="Kalam-font"> To get started <a class="btn btn-primary" href="/my-habits">click here</a></h3>
+  </div>
+  </div>
+</div>
 {{/if}}
 
 <script src="/javascript/homepage.js"></script>

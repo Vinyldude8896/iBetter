@@ -1,16 +1,5 @@
 {{!-- chart --}}
-
-{{#unless habits.length}}
-<div class="card m-5 text-center">
-  <div class="card-body">
-    <h2 class="card-title Kalam-font">You're currently not tracking any habits!</h2>
-    <p> To get started <a href="/my-habits">click here!</a></p>
-  </div>
-</div>
-{{/unless}}
-
 {{#if habits.length}}
-
 <div class="container text-center d-flex flex-column align-items-center justify-contents-center my-5">
   <div class="card w-100">
     <div class="card-body">
@@ -26,21 +15,17 @@
     </section>
   </div>
 </div>
-{{/if}}
-
-<footer>
-  <div class="card text-center">
+{{else}}
+<div class="container text-center d-flex flex-column align-items-center justify-contents-center my-5">
+  <div class="card w-100">
     <div class="card-body">
-      <h5 class="card-title Kalam-font">Thanks for visiting the iBetter Habit tracker wesite</h5>
-      <p class="card-text Kalam-font">We value your support and encourage you to be Better!</p>
-    </div>
+    <h1 class="Kalam-font">Hello {{username}}!</h1>
+    <h2 class="Kalam-font">You're currently not tracking any habits</h2>
+    <h3 class="Kalam-font"> To get started <a class="btn btn-primary" href="/my-habits">click here</a></h3>
   </div>
-</footer>
-
-
-
+  </div>
+</div>
+{{/if}}
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/javascript/bar-chart.js"></script>
-{{!--
-<script src="/javascript/reset.js"></script> --}}

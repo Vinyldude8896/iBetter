@@ -1,17 +1,18 @@
-<article class="container bg-dark">
-  <h2 class="Kalam-font">
-    Edit habit
-  </h2>
-  <form class="edit-habit-form">
-    <div>
-
-      <input name="habit_title" class="Kalam-font" type="text" value="{{habit.habit_title}}" />
-      <input name="habit_info" class="Kalam-font" type="text" value="{{habit.habit_info}}" />
-
-    </div>
-    <button class="Kalam-font" type="submit">Save habit</button>
-    <button type="button" class="delete-habit-btn Kalam-font">Delete habit</button>
-  </form>
-</article>
+<section class="container d-flex flex-row justify-content-center">
+  <article class="column m-5">
+    <h2 class="">Edit habit</h2>
+    <form class="form-group edit-habit-form">
+      <div class="">
+        <label for="habit-title" class="form-label m-1">I better...</label>
+        <input name="habit_title" class="Kalam-font form-control m-1" type="text" value="{{habit.habit_title}}" />
+      </div>
+      <label for="habit-info" class="form-label m-1">because I...</label>
+      <input name="habit_info" class="Kalam-font form-control m-1" type="text" value="{{habit.habit_info}}" />
+      </div>
+      <button class="btn btn-primary w-100 m-1" type="submit">Save habit</button>
+      <button type="button" class="delete-habit-btn btn btn-danger w-100 m-1">Delete habit</button>
+    </form>
+  </article>
+</section>
 <script src="/javascript/edit-habit.js"></script>
 <script src="/javascript/delete-habit.js"></script>

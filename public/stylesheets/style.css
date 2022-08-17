@@ -16,6 +16,10 @@ body {
   font-family: 'Kalam';
 }
 
+input {
+  font-family: 'Kalam';
+}
+
 .path2 {
   stroke-dasharray: 1800;
   stroke-dashoffset: 1800;
