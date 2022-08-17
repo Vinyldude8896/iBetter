@@ -19,9 +19,9 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
     } else {
       const response = await fetch(`/api/results/${habitId}/${dateId}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
       });
       await response.json();
     }

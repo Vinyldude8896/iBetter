@@ -1,9 +1,4 @@
 async function newCharthandler() {
-  // user_id should be from session.user_id
-  // req is not defined
-  // const user_id = req.session.user_id;
-
-  // /api/habits/${user_id}
   const response = await fetch(`/api/habits/user`, {
     method: 'GET'
   });
