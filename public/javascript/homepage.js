@@ -1,5 +1,4 @@
 //functions for table
-
 document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
   checkbox.addEventListener("click", async (event) => {
     const { name: dateId, id: habitId, checked } = event.target;
@@ -20,14 +19,16 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
     } else {
       const response = await fetch(`/api/results/${habitId}/${dateId}`, {
         method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        // headers: {
+        //   "Content-Type": "application/json",
+        // },
       });
       await response.json();
     }
+    window.location.reload();
   });
 });
+
 
 //functionality for the clear all button 
 document.querySelector(".delete-all").addEventListener("click", async (event) => {
@@ -40,3 +41,4 @@ document.querySelector(".delete-all").addEventListener("click", async (event) =>
   await response.json();
   document.location.replace('/');
 })
+

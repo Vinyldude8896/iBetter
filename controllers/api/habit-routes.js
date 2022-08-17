@@ -1,10 +1,63 @@
 const router = require('express').Router();
 const { User, Habit, Result } = require('../../models');
 const withAuth = require('../../utils/auth');
+const sequelize = require("../../config/connection");
 
-//don't need a get all (/) route because we only look at one users habits at a time
+router.get('/', (req, res) => {
+  console.log(req.session);
+  Habit.findAll({
+      attributes: [
+          'id',
+          'habit_title',
+          'habit_info'
+      ],
+      include: [
+          {
+              model: User,
+              attributes: ['username']
+          },
+          {
+            model: Result
+          }
+      ]
+  })
+  .then(dbHabitData => res.json(dbHabitData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-//find all habits of a specific user 
+router.get('/user', (req, res) => {
+  Habit.findAll({ 
+      where: {
+        user_id: req.session.user_id
+      },
+      attributes: [
+        'id', 
+        'habit_title', 
+        'habit_info',      
+        [sequelize.literal('(SELECT COUNT(*) FROM result WHERE habit.id = result.habit_id)'), 'habit_count']
+      ],
+      include: [
+        {
+          model: User,
+          attributes: ['id', 'username']
+        }
+      ]
+    }).then(dbHabitData => {
+      if (!dbHabitData) {
+        res.status(404).json({ message: 'No habits found for this user' });
+        return;
+      }
+      res.json(dbHabitData);
+      
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.post('/', withAuth, (req, res) => {
     // expects {habit_title: 'Exercise', habit_info: 'Run for 30 minutes'}, gets user id from the current session

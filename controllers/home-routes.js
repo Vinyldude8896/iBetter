@@ -12,9 +12,6 @@ router.get("/", withAuth, async (req, res) => {
       },
       include: [
         {
-          model: DateModel,
-        },
-        {
           model: Habit,
         },
       ],

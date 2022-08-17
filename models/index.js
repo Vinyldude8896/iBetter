@@ -1,7 +1,7 @@
 const User = require("./User");
 const Habit = require("./Habit");
 const Result = require("./Result");
-const DateModel = require("./Date");
+
 
 //one-to-many result through table
 Result.belongsTo(Habit, {
@@ -10,20 +10,8 @@ Result.belongsTo(Habit, {
   hooks: true, 
 });
 
-Result.belongsTo(DateModel, {
-  foreignKey: "date_id",
-  onDelete: 'cascade',
-  hooks: true, 
-});
-
 Habit.hasMany(Result, {
   foreignKey: "habit_id",
-  onDelete: 'cascade',
-  hooks: true, 
-});
-
-DateModel.hasMany(Result, {
-  foreignKey: "date_id",
   onDelete: 'cascade',
   hooks: true, 
 });
@@ -42,6 +30,7 @@ Habit.belongsTo(User, {
 });
 
 //user result association one-to-many
+// answer conflict
 User.hasMany(Result, {
   foreignKey: "user_id",
   onDelete: 'cascade',
@@ -54,4 +43,4 @@ Result.belongsTo(User, {
   hooks: true, 
 });
 
-module.exports = { User, Habit, Result, DateModel };
+module.exports = { User, Habit, Result };

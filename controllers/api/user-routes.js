@@ -41,6 +41,7 @@ router.get('/:id', (req, res) => {
 });
 
 // POST /api/users
+// signup
 router.post('/', (req, res) => {
   const {body: {username, email, password}} = req
   User.create({
