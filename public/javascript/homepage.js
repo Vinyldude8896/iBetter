@@ -25,7 +25,6 @@ document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
       });
       await response.json();
     }
-    window.location.reload();
   });
 });
 
@@ -39,6 +38,6 @@ document.querySelector(".delete-all").addEventListener("click", async (event) =>
     }
   });
   await response.json();
-  document.location.replace('/');
+  document.location.replace('/table');
 })
 

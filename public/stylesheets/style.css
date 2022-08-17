@@ -9,35 +9,39 @@ body {
 .Kalam-font {
   font-family: 'Kalam';
   font-size: 26px;
+  padding: 0;
+  margin: 0;
 }
 
-.path1{
-  stroke-dasharray:400;
-  stroke-dashoffset:400;
-  transition:.5s all;
+.path2 {
+  stroke-dasharray: 1800;
+  stroke-dashoffset: 1800;
+  transition: .5s all;
 }
 
-.checkbox {
-  position:relative;
-  display:block;
-  width:100%;
-  height:60px;
-  background:#E0DCDC;
-  overflow:hidden;
-  border-bottom:2px solid white;
-}
-
-.check:checked + label svg g path {
-  stroke-dashoffset:0;
+.check:checked+label svg g path {
+  stroke-dashoffset: 0;
 }
 
 .check {
-  width:50px;
-  height:50px;
-  position:absolute;
-  opacity:0;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index:20;
+  opacity: 0;
+  margin-top:10px;
+  margin-bottom: -20px
 }
 
 .label {
-  z-index: 999;
+  position: relative;
+
+  margin-left:-50px
+}
+
+.tablebox {
+  overflow: scroll;
+  width: 60vw;
+  height: 80vh;
+  margin: 20px auto
 }
