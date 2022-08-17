@@ -29,14 +29,6 @@ router.delete("/:habitId/:dateId", withAuth, async (req, res) => {
         date_Id: dateId,
         user_id: req.session.user_id,
       },
-<<<<<<< HEAD
-      // include: [
-      //   {
-      //       model: DateModel,
-      //       attributes: ["date_id"]
-      //   }
-      // ]
-=======
       include: [
         {
             model: DateModel,
@@ -59,7 +51,6 @@ router.delete("/", withAuth, async (req, res) => {
       where: {
         user_id: req.session.user_id,
       },
->>>>>>> a9ad597eb8590fe30a5be6a49f78e9880f8c41bb
     });
     res.json({ success: true });
   } catch (err) {

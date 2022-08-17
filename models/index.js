@@ -16,7 +16,6 @@ Result.belongsTo(DateModel, {
   hooks: true, 
 });
 
-
 Habit.hasMany(Result, {
   foreignKey: "habit_id",
   onDelete: 'cascade',
@@ -55,5 +54,4 @@ Result.belongsTo(User, {
   hooks: true, 
 });
 
-module.exports = { User, Habit, Result };
-// DateModel
+module.exports = { User, Habit, Result, DateModel };
