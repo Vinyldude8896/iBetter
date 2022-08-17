@@ -73,7 +73,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/Vinyldude8896/iBetter](https://github.com/Vinyldude8896/iBetter)
-- Deployed URL: [https://murmuring-caverns-89581.herokuapp.com/](https://ibetter.herokuapp.com )
+- Deployed URL: [https://ibetter.herokuapp.com /](https://ibetter.herokuapp.com )
 
 ### Contribution Guidelines
 
