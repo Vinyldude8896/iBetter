@@ -1,20 +1,20 @@
 const User = require("./User");
 const Habit = require("./Habit");
 const Result = require("./Result");
-const DateModel = require("./Date");
+// const DateModel = require("./Date");
 
 //one-to-many result through table
 Result.belongsTo(Habit, {
   foreignKey: "habit_id",
 });
 
+Habit.hasMany(Result, {
+  foreignKey: "habit_id",
+});
 // Result.belongsTo(DateModel, {
 //   foreignKey: "date_id",
 // });
 
-Habit.hasMany(Result, {
-  foreignKey: "habit_id",
-});
 
 // DateModel.hasMany(Result, {
 //   foreignKey: "date_id",
@@ -30,6 +30,7 @@ Habit.belongsTo(User, {
 });
 
 //user result association one-to-many
+// answer conflict
 User.hasMany(Result, {
   foreignKey: "user_id",
 });

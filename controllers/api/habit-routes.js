@@ -4,29 +4,29 @@ const withAuth = require('../../utils/auth');
 const sequelize = require("../../config/connection");
 
 router.get('/', (req, res) => {
-    console.log(req.session);
-    Habit.findAll({
-        attributes: [
-            'id',
-            'habit_title',
-            'habit_info'
-        ],
-        include: [
-            {
-                model: User,
-                attributes: ['username']
-            },
-            {
-              model: Result
-            }
-        ]
-    })
-    .then(dbHabitData => res.json(dbHabitData))
-      .catch((err) => {
-        console.log(err);
-        res.status(500).json(err);
-      });
-  });
+  console.log(req.session);
+  Habit.findAll({
+      attributes: [
+          'id',
+          'habit_title',
+          'habit_info'
+      ],
+      include: [
+          {
+              model: User,
+              attributes: ['username']
+          },
+          {
+            model: Result
+          }
+      ]
+  })
+  .then(dbHabitData => res.json(dbHabitData))
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
 router.get('/user', (req, res) => {
   Habit.findAll({ 
@@ -57,7 +57,7 @@ router.get('/user', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-})
+});
 
 router.post('/', withAuth, (req, res) => {
     // expects {habit_title: 'Exercise', habit_info: 'Run for 30 minutes'}, gets user id from the current session

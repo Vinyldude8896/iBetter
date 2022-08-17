@@ -10,10 +10,7 @@ async function newCharthandler() {
 
   if (response.ok) {
     response.json().then(function(data) {
-      buildChart(data)
-      // displayRepos(data, user);
-      // document.location.replace('/');
-
+      buildChart(data);
   });  
   } else {
     alert(response.statusText);

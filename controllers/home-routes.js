@@ -11,9 +11,9 @@ router.get("/", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
       include: [
-        {
-          model: DateModel,
-        },
+        // {
+        //   model: DateModel,
+        // },
         {
           model: Habit,
         },
@@ -43,7 +43,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const habits = habitsData.map((habit) => habit.get({ plain: true }));
     const results = resultsData.map((result) => result.get({ plain: true }));
-    console.log(">>>>", results);
+    // console.log(">>>>", results);
     res.render("home", {
       //siblings
       habits,
@@ -153,6 +153,8 @@ router.get(`/my-habits`, withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+
+
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {

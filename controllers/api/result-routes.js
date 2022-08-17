@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Result, DateModel } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+
 //if user changes the status (unchecks/rechecks)
 router.put("/:id", withAuth, (req, res) => {
   Result.update(
@@ -53,12 +54,12 @@ router.delete("/:habitId/:dateId", withAuth, async (req, res) => {
         habit_id: habitId,
         user_id: req.session.user_id,
       },
-      include: [
-        {
-          model: DateModel,
-          attributes: ["date_id"],
-        },
-      ],
+      // include: [
+      //   {
+      //       model: DateModel,
+      //       attributes: ["date_id"]
+      //   }
+      // ]
     });
     res.json({ success: true });
   } catch (err) {
