@@ -34,15 +34,7 @@ User.init(
       validate: {
         len: [6]
       }
-    },
-    // habit_id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: 'habit',
-    //     key: 'id'
-    //   }
-    // }
+    }
   },
   {
     hooks: {
@@ -63,3 +55,4 @@ User.init(
 );
 
 module.exports = User;
+

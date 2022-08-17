@@ -43,7 +43,7 @@ router.get("/", withAuth, async (req, res) => {
     });
     const habits = habitsData.map((habit) => habit.get({ plain: true }));
     const results = resultsData.map((result) => result.get({ plain: true }));
-    console.log(">>>>", results);
+    // console.log(">>>>", results);
     res.render("home", {
       //siblings
       habits,
@@ -57,43 +57,6 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-//this page doesn't exist yet so this route is not in use
-router.get("/habit/:id", (req, res) => {
-  Habit.findOne({
-    where: {
-      id: req.params.id,
-    },
-    attributes: [
-      "id",
-      "habit_title",
-      "habit_info",
-      // 'created_at'
-    ],
-    include: {
-      model: User,
-      attributes: ["username"],
-    },
-  })
-    .then((dbhabitData) => {
-      if (!dbhabitData) {
-        res.status(404).json({ message: "No habit found with this id" });
-        return;
-      }
-
-      // serialize the data
-      const habit = dbhabitData.get({ plain: true });
-
-      // pass data to template
-      res.render("single-habit", {
-        habit,
-        loggedIn: req.session.loggedIn,
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
 
 router.get("/my-habits/edit/:id", withAuth, (req, res) => {
   Habit.findByPk(req.params.id, {
@@ -154,6 +117,8 @@ router.get(`/my-habits`, withAuth, (req, res) => {
     });
 });
 
+
+
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/");
@@ -162,6 +127,5 @@ router.get("/login", (req, res) => {
 
   res.render("login-signup");
 });
-
 
 module.exports = router;
