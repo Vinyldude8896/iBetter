@@ -40,4 +40,3 @@ document.querySelector(".delete-all").addEventListener("click", async (event) =>
   await response.json();
   document.location.replace('/table');
 })
-
