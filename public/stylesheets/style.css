@@ -1,22 +1,24 @@
 /* homepage */
+
+* {
+  transition: .5s all;
+}
+
 body {
   background-image: url('/images/hip-square.png');
   background-color: rgba(255, 255, 255, 0.476);
   background-blend-mode: overlay;
   background-repeat: repeat;
+  font-family: 'Kalam';
 }
 
 .Kalam-font {
   font-family: 'Kalam';
-  font-size: 26px;
-  padding: 0;
-  margin: 0;
 }
 
 .path2 {
   stroke-dasharray: 1800;
   stroke-dashoffset: 1800;
-  transition: .5s all;
 }
 
 .check:checked+label svg g path {
@@ -35,13 +37,18 @@ body {
 
 .label {
   position: relative;
-
   margin-left:-50px
 }
 
 .tablebox {
   overflow: scroll;
-  width: 60vw;
   height: 80vh;
-  margin: 20px auto
+}
+
+.bi-pencil-fill {
+  opacity: 0;
+}
+
+li:hover .bi-pencil-fill {
+  opacity: 1;
 }

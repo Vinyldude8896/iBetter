@@ -1,11 +1,14 @@
 {{!-- table --}}
 {{#if habits.length}}
-<div class="tablebox">
-    <table id="results_table" class="table table-bordered table-sm text-center">
+<div class="container d-flex flex-column align-items-center">
+  <div class="tablebox w-75">
+    <table id="results_table" class="table table-bordered table-sm text-center ">
       <thead>
         <th></th>
         {{#each habits}}
-        <th class="Kalam-font">{{habit_title}}</th>
+        <th>
+          <h2 class="Kalam-font">{{habit_title}}</h2>
+        </th>
         {{/each}}
       </thead>
       <tbody>
@@ -540,9 +543,10 @@
     </table>
   </div>
   <div>
-  <button class="delete-all btn btn-danger">
-    Clear All
-  </button>
+    <button class="delete-all btn btn-danger">
+      Clear All
+    </button>
+  </div>
 </div>
 {{/if}}
 

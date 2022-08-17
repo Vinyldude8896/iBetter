@@ -1,31 +1,38 @@
-<section class="page-margin" >
-  <h2 class="Kalam-font Kalam-font-header ">Create New Habit</h2>
+<section class="container d-flex flex-row justify-content-center">
 
-  <form class="new-habit-form margin_top">
-    <div class="margin_top">
-      <label class="Kalam-font" for="habit-title">Title</label>
-      <input class="Kalam-font" type="text" id="habit-title" name="habit-title" />
-    </div>
-    <div class="margin_top2">
-      <label class="Kalam-font" for="habit-info">info</label>
-      <input class="Kalam-font" id="habit-info" name="habit-info" />
-    </div>
-    <button class="Kalam-font margin_top2 btn btn-primary" type="submit">Create</button>
-  </form>
-</section>
+  <article class="column m-5">
+      <h2 class="">Create a New Habit</h2>
+      <form class="form-group new-habit-form">
+        <div class="">
+          <label for="habit-title" class="form-label m-1">I better...</label>
+          <input class="form-control m-1" type="text" id="habit-title" name="habit-title" />
+        </div>
+          <label for="habit-info" class="form-label m-1">because I...</label>
+          <input class="form-control m-1" id="habit-info" type="text" name="habit-info" />
+        </div>
+        <button class="btn btn-primary w-100 m-1" type="submit">Create</button>
+      </form>
+  </article>
 
-{{#if habits.length}}
-<section class="page-margin">
-  <h2 class="Kalam-font Kalam-font-header">Your habits</h2>
- <ol>
+  {{#if habits.length}}
+  <article class="column m-5">
+  <ul class="list-group">
+    <li class="list-group-item active">
+      <h2>Your habits</h2>
+    </li>
     {{#each habits as |habit|}}
-    <li class="Kalam-font">
-      {{> habit-info habit}}
-      <a href="/my-habits/edit/{{habit.id}}" class="edit-link Kalam-font">Edit habit</a>
+    <li class="list-group-item">
+      <div class="d-flex flex-row">
+{{> habit-info habit}}
+      <a href="/my-habits/edit/{{habit.id}}" class="edit-link"><i class="bi bi-pencil-fill m-3"></i></a>
+      </div>
+      
     </li>
     {{/each}}
-  </ol>
+  </ul>
+  {{/if}}
+  </article>
+
 </section>
-{{/if}}
 
 <script src="/javascript/add-habit.js"></script>

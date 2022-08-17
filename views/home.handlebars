@@ -1,6 +1,24 @@
-
 {{!-- chart --}}
+
+{{#unless habits.length}}
+<div class="card m-5 text-center">
+  <div class="card-body">
+    <h2 class="card-title Kalam-font">You're currently not tracking any habits!</h2>
+    <p> To get started <a href="/my-habits">click here!</a></p>
+  </div>
+</div>
+{{/unless}}
+
 {{#if habits.length}}
+
+<div class="container text-center d-flex flex-column align-items-center justify-contents-center my-5">
+  <div class="card w-100">
+    <div class="card-body">
+      <h3 class="card-title Kalam-font">Hello {{username}}! Here's your progress so far!</h3>
+    </div>
+  </div>
+</div>
+
 <div class="container text-center">
   <div class="row">
     <section class="chartbox col">
@@ -11,13 +29,11 @@
 {{/if}}
 
 <footer>
-  <div class="card text-center top-layer">
-    <div class="card-header"></div>
+  <div class="card text-center">
     <div class="card-body">
       <h5 class="card-title Kalam-font">Thanks for visiting the iBetter Habit tracker wesite</h5>
       <p class="card-text Kalam-font">We value your support and encourage you to be Better!</p>
     </div>
-    <div class="card-footer text-muted"></div>
   </div>
 </footer>
 

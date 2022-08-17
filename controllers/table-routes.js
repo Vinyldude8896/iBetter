@@ -46,6 +46,7 @@ router.get("/", withAuth, async (req, res) => {
         habits,
         results,
         user_id: req.session.user_id,
+        username: req.session.username,
         loggedIn: req.session.loggedIn,
       });
     } catch (err) {

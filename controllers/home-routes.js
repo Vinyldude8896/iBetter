@@ -45,6 +45,7 @@ router.get("/", withAuth, async (req, res) => {
       //siblings
       habits,
       results,
+      username: req.session.username,
       user_id: req.session.user_id,
       loggedIn: req.session.loggedIn,
     });
