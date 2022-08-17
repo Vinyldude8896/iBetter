@@ -48,7 +48,7 @@ If anyone ever wants to look at the application, you have to clone it to your ow
 
 ### Usage
 
-The application will be deployed on Heroku, the live application is at this link: https://murmuring-caverns-89581.herokuapp.com/
+The application is deployed on Heroku, the live application is at this link: https://ibetter.herokuapp.com   
 
 ### Testing
 
